@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.brovada.QuoteControllerTests" time="1.521" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\bin"/>
+    <property name="java.vm.version" value="25.77-b03"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="idea.launcher.port" value="7534"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\workspace\springBoot\complete"/>
+    <property name="java.runtime.version" value="1.8.0_77-b03"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_77\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\derek840\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\Program Files (x86)\apache-maven-3.2.3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_77\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.0.4\bin\..\.\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\apache-maven-3.2.3\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft Application Virtualization Client;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Enterprise Vault\EVClient\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\derek840\AppData\Local\atom\bin;C:\Users\derek840\AppData\Roaming\npm;c:\program files\java\jdk1.8.0_102\jre\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\derek840"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.0.4\bin"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="DEREK840"/>
+    <property name="java.class.path" value="C:\Program Files (x86)\apache-maven-3.2.3\boot\plexus-classworlds-2.5.1.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.0.4\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_77\jre"/>
+    <property name="sun.java.command" value="com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher --no-plugin-registry --fail-fast --strict-checksums --update-snapshots install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_77"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_77\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_77\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_77\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_77\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files (x86)\apache-maven-3.2.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="test_quote" classname="com.brovada.QuoteControllerTests" time="1.521">
+    <failure message="JSON path &quot;$&quot;&#10;Expected: iterable over [&quot;role1&quot;, &quot;role2&quot;, &quot;role3&quot;] in any order&#10;     but: Not matched: &lt;{id=583379eb4db6cf3640874d0b, firstName=Alice, lastName=Smith, startDate=null, endDate=null}&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: JSON path "$"
+Expected: iterable over ["role1", "role2", "role3"] in any order
+     but: Not matched: <{id=583379eb4db6cf3640874d0b, firstName=Alice, lastName=Smith, startDate=null, endDate=null}>
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:76)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:86)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.brovada.QuoteControllerTests.test_quote(QuoteControllerTests.java:64)
+]]></failure>
+    <system-out><![CDATA[17:48:59.654 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.brovada.QuoteControllerTests]
+17:48:59.704 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:48:59.724 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:48:59.761 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.brovada.QuoteControllerTests] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+17:48:59.799 [main] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@5f341870 declaringClass = 'com.brovada.QuoteControllerTests', classes = '{class com.brovada.Application}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:48:59.807 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.brovada.QuoteControllerTests]: class path resource [com/brovada/QuoteControllerTests-context.xml] does not exist
+17:48:59.808 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.brovada.QuoteControllerTests]: class path resource [com/brovada/QuoteControllerTestsContext.groovy] does not exist
+17:48:59.808 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.brovada.QuoteControllerTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:48:59.891 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.brovada.QuoteControllerTests]
+17:48:59.893 [main] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [com.brovada.QuoteControllerTests]: using defaults.
+17:48:59.903 [main] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:48:59.941 [main] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@26a7b76d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4abdb505, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener@7ce6a65d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1500955a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@e874448, org.springframework.test.context.transaction.TransactionalTestExecutionListener@29b5cd00, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@60285225, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7113b13f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@45820e51, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@42d8062c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6043cd28]
+17:48:59.954 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.brovada.QuoteControllerTests]
+17:48:59.954 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.brovada.QuoteControllerTests]
+17:48:59.957 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.brovada.QuoteControllerTests]
+17:48:59.957 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:48:59.958 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:48:59.958 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.brovada.QuoteControllerTests] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+17:48:59.960 [main] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@1e7c7811 declaringClass = 'com.brovada.QuoteControllerTests', classes = '{class com.brovada.Application}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:48:59.960 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.brovada.QuoteControllerTests]: class path resource [com/brovada/QuoteControllerTests-context.xml] does not exist
+17:48:59.961 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.brovada.QuoteControllerTests]: class path resource [com/brovada/QuoteControllerTestsContext.groovy] does not exist
+17:48:59.961 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.brovada.QuoteControllerTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:48:59.967 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.brovada.QuoteControllerTests]
+17:48:59.985 [main] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [com.brovada.QuoteControllerTests]: using defaults.
+17:48:59.988 [main] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:48:59.989 [main] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@192d3247, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3ecd23d9, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener@569cfc36, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43bd930a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@33723e30, org.springframework.test.context.transaction.TransactionalTestExecutionListener@64f6106c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@553a3d88, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7a30d1e6, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5891e32e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@cb0ed20, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@8e24743]
+17:48:59.990 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.brovada.QuoteControllerTests]
+17:48:59.990 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.brovada.QuoteControllerTests]
+17:48:59.991 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.brovada.QuoteControllerTests]
+17:48:59.991 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.brovada.QuoteControllerTests]
+17:48:59.993 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@51c8530f testClass = QuoteControllerTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7403c468 testClass = QuoteControllerTests, locations = '{}', classes = '{class com.brovada.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@887af79, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@7c29daf3], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+17:48:59.997 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.brovada.QuoteControllerTests]
+17:48:59.997 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.brovada.QuoteControllerTests]
+17:49:00.178 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:49:00.178 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:49:00.178 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:49:00.180 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.4.0.RELEASE)
+
+2016-11-21 17:49:01.353  INFO 13888 --- [           main] com.brovada.QuoteControllerTests         : Starting QuoteControllerTests on LPC-LR90J4TM0 with PID 13888 (started by DEREK840 in C:\workspace\springBoot\complete)
+2016-11-21 17:49:01.354  INFO 13888 --- [           main] com.brovada.QuoteControllerTests         : No active profile set, falling back to default profiles: default
+2016-11-21 17:49:01.451  INFO 13888 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@783a467b: startup date [Mon Nov 21 17:49:01 EST 2016]; root of context hierarchy
+2016-11-21 17:49:06.141  INFO 13888 --- [           main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-21 17:49:06.269  INFO 13888 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d8e945e1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-11-21 17:49:07.909  INFO 13888 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+com.brovada
+2016-11-21 17:49:09.912  INFO 13888 --- [           main] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 6b305d69-3904-44c9-b2cb-b851f7407af3
+
+2016-11-21 17:49:10.138  INFO 13888 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@483f286e, org.springframework.security.web.context.SecurityContextPersistenceFilter@2921a36a, org.springframework.security.web.header.HeaderWriterFilter@740b6628, org.springframework.security.web.csrf.CsrfFilter@286855ea, org.springframework.security.web.authentication.logout.LogoutFilter@566e142, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@157d3a45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bedc703, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bb147ec, org.springframework.security.web.session.SessionManagementFilter@5f0bab7e, org.springframework.security.web.access.ExceptionTranslationFilter@3a8cea24, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ece79fe]
+2016-11-21 17:49:10.686  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@783a467b: startup date [Mon Nov 21 17:49:01 EST 2016]; root of context hierarchy
+2016-11-21 17:49:10.784  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quote],methods=[POST]}" onto org.springframework.http.ResponseEntity<?> com.brovada.QuoteController.add(com.brovada.Quote)
+2016-11-21 17:49:10.786  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quote],methods=[GET]}" onto public java.util.List<com.brovada.Quote> com.brovada.QuoteController.employeeByName(java.lang.String)
+2016-11-21 17:49:10.786  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quote/{id}]}" onto public com.brovada.Quote com.brovada.QuoteController.employee(java.lang.String)
+2016-11-21 17:49:10.793  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-11-21 17:49:10.794  INFO 13888 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-21 17:49:10.848  INFO 13888 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-21 17:49:10.848  INFO 13888 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-21 17:49:10.915  INFO 13888 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-11-21 17:49:12.663  INFO 13888 --- [           main] org.mongodb.driver.cluster               : No server chosen by WritableServerSelector from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, all=[ServerDescription{address=127.0.0.1:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2016-11-21 17:49:15.061  INFO 13888 --- [127.0.0.1:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to 127.0.0.1:27017
+2016-11-21 17:49:15.157  INFO 13888 --- [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 9]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, roundTripTimeNanos=94490234}
+2016-11-21 17:49:15.176  INFO 13888 --- [           main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:4}] to 127.0.0.1:27017
+Quotes found with findAll():
+-------------------------------
+Quote{endDate=null, firstName='Alice', id='583379eb4db6cf3640874d0b', lastName='Smith', startDate=null}
+Quote{endDate=null, firstName='Bob', id='583379ec4db6cf3640874d0c', lastName='Smith', startDate=null}
+Quote{endDate=null, firstName='Bill', id='583379ec4db6cf3640874d0d', lastName='Jones', startDate=null}
+Quote{endDate=null, firstName='John', id='583379ec4db6cf3640874d0e', lastName='Doe', startDate=null}
+Quote{endDate=null, firstName='Sally', id='583379ec4db6cf3640874d0f', lastName='Smith', startDate=null}
+Quote{endDate=null, firstName='Alice', id='583379ec4db6cf3640874d10', lastName='Hearth', startDate=null}
+
+2016-11-21 17:49:16.714  INFO 13888 --- [           main] com.brovada.QuoteControllerTests         : Started QuoteControllerTests in 16.514 seconds (JVM running for 17.921)
+2016-11-21 17:49:17.820  INFO 13888 --- [           main] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-11-21 17:49:17.820  INFO 13888 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-11-21 17:49:17.839  INFO 13888 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 19 ms
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /quote
+       Parameters = {name=[Alice]}
+          Headers = {}
+
+Handler:
+             Type = com.brovada.QuoteController
+           Method = public java.util.List<com.brovada.Quote> com.brovada.QuoteController.employeeByName(java.lang.String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = {Content-Type=[application/json;charset=UTF-8]}
+     Content type = application/json;charset=UTF-8
+             Body = [{"id":"583379eb4db6cf3640874d0b","firstName":"Alice","lastName":"Smith","startDate":null,"endDate":null},{"id":"583379ec4db6cf3640874d10","firstName":"Alice","lastName":"Hearth","startDate":null,"endDate":null}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+</testsuite>

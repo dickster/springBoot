@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: com.brovada.QuoteControllerTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.328 sec <<< FAILURE! - in com.brovada.QuoteControllerTests
+test_quote(com.brovada.QuoteControllerTests)  Time elapsed: 1.521 sec  <<< FAILURE!
+java.lang.AssertionError: JSON path "$"
+Expected: iterable over ["role1", "role2", "role3"] in any order
+     but: Not matched: <{id=583379eb4db6cf3640874d0b, firstName=Alice, lastName=Smith, startDate=null, endDate=null}>
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:76)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:86)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.brovada.QuoteControllerTests.test_quote(QuoteControllerTests.java:64)
+
