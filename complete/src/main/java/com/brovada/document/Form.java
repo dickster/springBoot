@@ -1,4 +1,4 @@
-package com.brovada;
+package com.brovada.document;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,39 +8,40 @@ import java.math.BigDecimal;
 import java.util.Locale;
 
 @Document
-public class FormConfig extends Panel {
+public class Form extends Panel {
 
     private @Nonnull BigDecimal version;
 
     private @Nullable Locale locale;
     private @Nullable String initialFocus;
-    private @Nullable LayoutHint layoutHint;
+    private @Nullable
+    LayoutHint layoutHint;
 
 
-    public FormConfig() {
+    public Form() {
     }
 
-    public FormConfig withLocale(@Nullable Locale locale) {
+    public Form withLocale(@Nullable Locale locale) {
         this.locale = locale;
         return this;
     }
 
-    public FormConfig withInitialFocus(@Nullable String inputId) {
+    public Form withInitialFocus(@Nullable String inputId) {
         this.initialFocus = inputId;
         return this;
     }
 
-    public FormConfig withLayoutHint(@Nullable LayoutHint layoutHint) {
+    public Form withLayoutHint(@Nullable LayoutHint layoutHint) {
         this.layoutHint = layoutHint;
         return this;
     }
 
-    public FormConfig withVersion(@Nonnull Integer major, @Nonnull Integer minor) {
+    public Form withVersion(@Nonnull Integer major, @Nonnull Integer minor) {
         this.version = new BigDecimal(major+"."+minor);
         return this;
     }
 
-    public FormConfig withVersion(@Nonnull BigDecimal version) {
+    public Form withVersion(@Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -78,7 +79,19 @@ public class FormConfig extends Panel {
         return id;
     }
 
-
+    @Override
+    public String toString() {
+        return "Form{" +
+                "id='" + getId() + '\'' +
+                ", initialFocus='" + initialFocus + '\'' +
+                ", layoutHint=" + layoutHint +
+                ", locale=" + locale +
+                ", children=" + getChildren() +
+                ", majorVersion=" + getMajorVersion() +
+                ", minorVersion=" + getMinorVersion() +
+                ", version=" + version +
+                '}';
+    }
 }
 
 //    version: xyz

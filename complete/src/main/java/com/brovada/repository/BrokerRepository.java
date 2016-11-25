@@ -1,5 +1,7 @@
-package com.brovada;
+package com.brovada.repository;
 
+import com.brovada.document.Broker;
+import com.brovada.document.QBroker;
 import com.google.common.collect.Lists;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;

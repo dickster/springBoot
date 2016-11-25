@@ -1,5 +1,7 @@
-package com.brovada;
+package com.brovada.controller;
 
+import com.brovada.document.Quote;
+import com.brovada.repository.QuoteRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,8 @@ import java.util.List;
 @RequestMapping(value = "/quote")
 public class QuoteController {
 
-    private @Inject QuoteRepository repository;
+    private @Inject
+    QuoteRepository repository;
 
     @RequestMapping(value = "/{id}")
     public Quote employee(@PathVariable String id) {

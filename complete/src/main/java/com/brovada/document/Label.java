@@ -1,9 +1,12 @@
-package com.brovada;
+package com.brovada.document;
+
+import com.brovada.WidgetType;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 
+@Document
 public class Label implements Component {
-
 
     private @Nonnull String key;
 
@@ -21,8 +24,14 @@ public class Label implements Component {
         return WidgetType.LABEL;
     }
 
+    @Override
+    public String toString() {
+        return "Label{" +
+                "key='" + key + '\'' +
+                '}';
+    }
 
-//    { type:  label:  order:  required: id:  dropdownvalues:  defaultValue? validators:["required"] ,asyncValidator:[]  css: },
+    //    { type:  label:  order:  required: id:  dropdownvalues:  defaultValue? validators:["required"] ,asyncValidator:[]  css: },
 //    { type:  label:  order:  required: id:  dropdownvalues:
 //    dependents :  [{ type: label: order : required: id:  when:[valueA,valueB,valueF] },
 //        { type: label: order : required: id:  when:"valueB" }]

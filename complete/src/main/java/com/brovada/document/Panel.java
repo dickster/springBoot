@@ -1,5 +1,6 @@
-package com.brovada;
+package com.brovada.document;
 
+import com.brovada.WidgetType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,18 +9,13 @@ import java.util.List;
 @Document
 public class Panel implements Component, HasChildren, HasValidation {
 
-    private String label;
-    private List<String> validators;
-    private List<String> asyncValidators;
-    private List<Component> children;
+    protected String label;
+    protected List<String> validators;
+    protected List<String> asyncValidators;
+    protected List<? extends Component> children;
 
     @Id
     public String id;
-
-    @Override
-    public String getId() {
-        return null;
-    }
 
     @Override
     public WidgetType getType() {
@@ -27,28 +23,28 @@ public class Panel implements Component, HasChildren, HasValidation {
     }
 
     @Override
-    public List<Component> getChildren() {
+    public List<? extends Component> getChildren() {
         return children;
     }
 
-    public Panel withChildren(List<Component> children) {
+    public <T extends Panel> T withChildren(List<? extends Component> children) {
         this.children = children;
-        return this;
+        return (T) this;
     }
 
-    public Panel withValidators(List<String> validators) {
+    public <T extends Panel> T withValidators(List<String> validators) {
         this.validators = validators;
-        return this;
+        return (T) this;
     }
 
-    public Panel withAsyncValidators(List<String> asyncValidators) {
+    public <T extends Panel> T withAsyncValidators(List<String> asyncValidators) {
         this.asyncValidators = asyncValidators;
-        return this;
+        return (T) this;
     }
 
-    public Panel withLabel(String label) {
+    public <T extends Panel> T withLabel(String label) {
         this.label = label;
-        return this;
+        return (T) this;
     }
 
     public String getLabel() {

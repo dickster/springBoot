@@ -1,5 +1,7 @@
-package com.brovada;
+package com.brovada.controller;
 
+import com.brovada.document.Broker;
+import com.brovada.repository.BrokerRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,8 @@ import java.util.List;
 @RequestMapping(value = "/broker")
 public class BrokerController {
 
-    private @Inject BrokerRepository repository;
+    private @Inject
+    BrokerRepository repository;
 
     @RequestMapping(value = "/{id}")
     public Broker employee(@PathVariable String id) {
