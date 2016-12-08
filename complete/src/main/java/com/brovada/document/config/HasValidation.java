@@ -1,4 +1,4 @@
-package com.brovada.document;
+package com.brovada.document.config;
 
 import com.google.common.collect.Lists;
 

@@ -1,4 +1,4 @@
-package com.brovada.document;
+package com.brovada.document.config;
 
 public enum InputType {
     // HTML 5 text input types.

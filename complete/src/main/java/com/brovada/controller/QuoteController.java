@@ -19,8 +19,7 @@ import java.util.List;
 @RequestMapping(value = "/quote")
 public class QuoteController {
 
-    private @Inject
-    QuoteRepository repository;
+    private @Inject QuoteRepository repository;
 
     @RequestMapping(value = "/{id}")
     public Quote employee(@PathVariable String id) {

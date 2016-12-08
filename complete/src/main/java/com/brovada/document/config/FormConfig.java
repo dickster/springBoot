@@ -1,4 +1,4 @@
-package com.brovada.document;
+package com.brovada.document.config;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -6,42 +6,41 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.Locale;
+import java.util.Optional;
 
 @Document
-public class Form extends Panel {
+public class FormConfig extends PanelConfig {
 
     private @Nonnull BigDecimal version;
 
-    private @Nullable Locale locale;
-    private @Nullable String initialFocus;
-    private @Nullable
-    LayoutHint layoutHint;
+    private Optional<Locale> locale;
+    private Optional<String> initialFocus;
+    private Optional<LayoutHint> layoutHint;
 
-
-    public Form() {
+    public FormConfig() {
     }
 
-    public Form withLocale(@Nullable Locale locale) {
-        this.locale = locale;
+    public FormConfig withLocale(@Nonnull Locale locale) {
+        this.locale = Optional.of(locale);
         return this;
     }
 
-    public Form withInitialFocus(@Nullable String inputId) {
-        this.initialFocus = inputId;
+    public FormConfig withInitialFocus(@Nonnull String inputId) {
+        this.initialFocus = Optional.of(inputId);
         return this;
     }
 
-    public Form withLayoutHint(@Nullable LayoutHint layoutHint) {
-        this.layoutHint = layoutHint;
+    public FormConfig withLayoutHint(@Nonnull LayoutHint layoutHint) {
+        this.layoutHint = Optional.of(layoutHint);
         return this;
     }
 
-    public Form withVersion(@Nonnull Integer major, @Nonnull Integer minor) {
+    public FormConfig withVersion(@Nonnull Integer major, @Nonnull Integer minor) {
         this.version = new BigDecimal(major+"."+minor);
         return this;
     }
 
-    public Form withVersion(@Nonnull BigDecimal version) {
+    public FormConfig withVersion(@Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -62,17 +61,17 @@ public class Form extends Panel {
 
     @Nullable
     public Locale getLocale() {
-        return locale;
+        return locale.orElse(null);
     }
 
     @Nullable
     public String getInitialFocus() {
-        return initialFocus;
+        return initialFocus.orElse(null);
     }
 
     @Nullable
     public LayoutHint getLayoutHint() {
-        return layoutHint;
+        return layoutHint.orElse(null);
     }
 
     public String getId() {

@@ -1,27 +1,29 @@
-package com.brovada.document;
+package com.brovada.document.config;
 
-import com.brovada.WidgetType;
+import com.brovada.ComponentType;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
 
 @Document
-public class Label implements Component {
+public class LabelConfig implements ComponentConfig {
+
+    // how to display simple bound label/text.   like "hello {{name}}"
 
     private @Nonnull String key;
 
-    public Label(String key) {
+    public LabelConfig(String key) {
         withKey(key);
     }
 
-    private Label withKey(String key) {
+    private LabelConfig withKey(String key) {
         this.key = key;
         return this;
     }
 
     @Override
-    public WidgetType getType() {
-        return WidgetType.LABEL;
+    public ComponentType getType() {
+        return ComponentType.LABEL;
     }
 
     @Override

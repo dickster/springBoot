@@ -1,4 +1,4 @@
-package com.brovada;
+package com.brovada.validation;
 
 import javax.annotation.Nonnull;
 

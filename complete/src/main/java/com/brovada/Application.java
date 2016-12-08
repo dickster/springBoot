@@ -1,33 +1,34 @@
 package com.brovada;
 
 import com.brovada.document.Broker;
-import com.brovada.document.Form;
+import com.brovada.document.config.ComponentConfig;
+import com.brovada.document.config.FormConfig;
+import com.brovada.document.config.LabelConfig;
+import com.brovada.document.config.PanelConfig;
 import com.brovada.document.Quote;
-import com.brovada.document.Component;
-import com.brovada.document.Label;
-import com.brovada.document.Panel;
-import com.brovada.document.TextField;
+import com.brovada.document.config.TextFieldConfig;
 import com.brovada.repository.BrokerRepository;
 import com.brovada.repository.FormRepository;
 import com.brovada.repository.QuoteRepository;
+import com.brovada.validation.ValidatorFactory;
 import com.google.common.collect.Lists;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 import javax.inject.Inject;
 import java.util.List;
 
 
 @SpringBootApplication
+@EnableCaching
 public class Application implements CommandLineRunner {
 
-	@Inject
-	private QuoteRepository quoteRepository;
-	@Inject
-	private BrokerRepository brokerRepository;
-    @Inject
-    private FormRepository formRepository;
+	@Inject private QuoteRepository quoteRepository;
+	@Inject private BrokerRepository brokerRepository;
+    @Inject private FormRepository formRepository;
+    @Inject private ValidatorFactory validatorFactory;
 
     public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -38,6 +39,8 @@ public class Application implements CommandLineRunner {
 
         initDb();
 
+        System.out.println("validatorFactory: " + validatorFactory);
+
         System.out.println("Brokers found with findAll():");
         System.out.println("-------------------------------");
         for (Broker broker : brokerRepository.findAll()) {
@@ -46,7 +49,7 @@ public class Application implements CommandLineRunner {
         System.out.println();
         System.out.println("Forms found with findAll():");
         System.out.println("-------------------------------");
-        for (Form form : formRepository.findAll()) {
+        for (FormConfig form : formRepository.findAll()) {
             System.out.println(form);
         }
         System.out.println();
@@ -72,15 +75,15 @@ public class Application implements CommandLineRunner {
 
         formRepository.deleteAll();
 
-        List<Component> children = Lists.newArrayList(
-                new Label("name"),
-                new TextField("name.first"),
-                new Panel().withChildren(
-                        Lists.newArrayList(new Label("subpanel"))
+        List<ComponentConfig> children = Lists.newArrayList(
+                new LabelConfig("name"),
+                new TextFieldConfig("name.first"),
+                new PanelConfig().withChildren(
+                        Lists.newArrayList(new LabelConfig("subpanel"))
                 )
         );
 
-        Form f = new Form()
+        FormConfig f = new FormConfig()
                 .withVersion(1, 0)
                 .withChildren(children)
                 .withLabel("test form");

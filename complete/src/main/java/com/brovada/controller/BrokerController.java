@@ -19,8 +19,7 @@ import java.util.List;
 @RequestMapping(value = "/broker")
 public class BrokerController {
 
-    private @Inject
-    BrokerRepository repository;
+    private @Inject BrokerRepository repository;
 
     @RequestMapping(value = "/{id}")
     public Broker employee(@PathVariable String id) {
