@@ -1,6 +1,7 @@
 package com.brovada.controller;
 
 import com.brovada.document.Quote;
+import com.brovada.document.QuoteResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,13 +17,14 @@ public class QuoteEngineController {
     // it should be treated as a GET then most likely.  caching POSTs is not recommended in general.
     // a very dangerous undertaking indeed if you do decide to cache!
     @RequestMapping(method = RequestMethod.POST)
-    ResponseEntity<Double> add(@RequestBody Quote quote) {
-
-        // in real life, you'd probably want to return something more than just the number.
-        // maybe comments, notes, status codes, expiry date, meta data etc...
+    ResponseEntity<QuoteResult> add(@RequestBody Quote quote) {
         System.out.print("calculating quote for " + quote);
-        return new ResponseEntity<Double>(Math.random()*3000+150, HttpStatus.OK);
+        double total = Math.random() * 3000 + 150;
+        return new ResponseEntity<QuoteResult>(QuoteResult.success(total), HttpStatus.OK);
     }
+
+    // add a method that will calculate quote given QuoteId as parameter.  a headless service. doesn't need a client to POST.
+    //   can CURL quotes.
 
 }
 

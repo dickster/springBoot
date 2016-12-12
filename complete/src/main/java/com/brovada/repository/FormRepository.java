@@ -1,7 +1,7 @@
 package com.brovada.repository;
 
-import com.brovada.document.QForm;
 import com.brovada.document.config.FormConfig;
+import com.brovada.document.config.QFormConfig;
 import com.google.common.collect.Lists;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -16,7 +16,7 @@ public interface FormRepository extends MongoRepository<FormConfig, String>, Que
     public FormConfig findById(String id);
 
     default public @Nullable FormConfig findLatestById(String id) {
-        QForm form= new QForm("qf");
+        QFormConfig form= new QFormConfig("qf");
 
         FormConfig latest = null;
         BigDecimal v = new BigDecimal(Integer.MIN_VALUE);
@@ -37,7 +37,7 @@ public interface FormRepository extends MongoRepository<FormConfig, String>, Que
     @Cacheable(value="form", key = "#name")
     // example of a refactor safe, coded query (as opposed to automatically generated ones above).
     default public List<FormConfig> find(String name) {
-        QForm form = new QForm("qf");
+        QFormConfig form = new QFormConfig("qf");
 
         Iterable<FormConfig> result = findAll(
                 form.id.containsIgnoreCase(name).

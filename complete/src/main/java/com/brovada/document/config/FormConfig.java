@@ -13,9 +13,9 @@ public class FormConfig extends PanelConfig {
 
     private @Nonnull BigDecimal version;
 
-    private Optional<Locale> locale;
-    private Optional<String> initialFocus;
-    private Optional<LayoutHint> layoutHint;
+    private Optional<Locale> locale = Optional.empty();
+    private Optional<String> initialFocus = Optional.empty();
+    private Optional<LayoutHint> layoutHint = Optional.empty();
 
     public FormConfig() {
     }
@@ -59,9 +59,9 @@ public class FormConfig extends PanelConfig {
         return (long) (v - (long)v);
     }
 
-    @Nullable
+    @Nonnull
     public Locale getLocale() {
-        return locale.orElse(null);
+        return locale.orElse(Locale.getDefault());
     }
 
     @Nullable
@@ -92,17 +92,3 @@ public class FormConfig extends PanelConfig {
                 '}';
     }
 }
-
-//    version: xyz
-//    locale: UK    <-- can be set dynamically.
-//    initialFocus: -- default to smallest #/first
-//    validators: ["a", "b"]
-//    questions : [
-//    { type:  label:  order:  required: id:  dropdownvalues:  defaultValue? validators:["required"] ,asyncValidator:[]  css: },
-//    { type:  label:  order:  required: id:  dropdownvalues:
-//    dependents :  [{ type: label: order : required: id:  when:[valueA,valueB,valueF] },
-//        { type: label: order : required: id:  when:"valueB" }]
-//        //any level of dependents...
-//    }
-//    { type:  label:  order:  required: id:  defaultValue:  autocompleteRestUrl:  otherNg2CompleterAttributes },
-//    { type:  label:  order:  required: id:  defaultValue: inputType /* html5 type */},

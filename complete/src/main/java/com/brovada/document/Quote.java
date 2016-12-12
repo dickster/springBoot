@@ -2,7 +2,9 @@ package com.brovada.document;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
+import java.util.Optional;
 
 @Document
 public class Quote {
@@ -15,6 +17,7 @@ public class Quote {
     public Date startDate;
     public Date endDate;
     // etc...
+    public Optional<QuoteResult> result = Optional.empty();
 
     public Quote() {}
 

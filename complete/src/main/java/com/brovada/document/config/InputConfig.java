@@ -1,7 +1,5 @@
 package com.brovada.document.config;
 
-import com.brovada.ComponentType;
-
 import java.util.Optional;
 
 // for form <input> elemements.   note that <textarea> & <select> are not part of this hierarchy.

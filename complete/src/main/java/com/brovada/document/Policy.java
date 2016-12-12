@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Document
+// TODO : rename QuoteGroup, Quotes...?
 public class Policy {
 
     @Id
@@ -75,7 +76,6 @@ public class Policy {
         quotes.remove(quoteId);
         return this;
     }
-
 
 }
 

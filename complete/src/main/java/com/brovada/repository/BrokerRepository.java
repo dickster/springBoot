@@ -34,7 +34,6 @@ public interface BrokerRepository extends MongoRepository<Broker, String>, Query
         }
     }
 
-
     @CacheEvict(value = "broker")
     default public void resetBrokers() {
         // do nothing. strictly a marker to evict the cache.

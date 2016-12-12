@@ -1,6 +1,5 @@
 package com.brovada.document.config;
 
-import com.brovada.ComponentType;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;

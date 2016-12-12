@@ -1,21 +1,23 @@
 package com.brovada.document.config;
 
-import com.brovada.ComponentType;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class AutocompleteConfig<T> extends InputConfig<T> implements HasValidation {
 
-    private String formControlName;
-    private ChoiceProvider<T> choiceProvider = new ChoiceProvider();
+    private ChoiceProvider<T> choiceProvider;
 
     public AutocompleteConfig(String formControlName) {
         super(ComponentType.AUTOCOMPLETE, formControlName);
     }
 
-    public boolean isRemote() {
-        return choiceProvider.isRemote();
+    public AutocompleteConfig withRemoteChoices(String url) {
+        this.choiceProvider = new RemoteChoiceProvider<>().withUrl(url);
+        return this;
     }
 
+    public boolean isRemote() {
+        return choiceProvider instanceof RemoteChoiceProvider;
+    }
 
 }

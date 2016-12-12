@@ -1,21 +1,22 @@
 package com.brovada;
 
 import com.brovada.document.Broker;
+import com.brovada.document.Quote;
 import com.brovada.document.config.ComponentConfig;
 import com.brovada.document.config.FormConfig;
 import com.brovada.document.config.LabelConfig;
 import com.brovada.document.config.PanelConfig;
-import com.brovada.document.Quote;
 import com.brovada.document.config.TextFieldConfig;
 import com.brovada.repository.BrokerRepository;
 import com.brovada.repository.FormRepository;
 import com.brovada.repository.QuoteRepository;
-import com.brovada.validation.ValidatorFactory;
+import com.brovada.validation.QuoteValidatorFactory;
 import com.google.common.collect.Lists;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -23,14 +24,16 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableCaching
+@ComponentScan
 public class Application implements CommandLineRunner {
 
 	@Inject private QuoteRepository quoteRepository;
 	@Inject private BrokerRepository brokerRepository;
     @Inject private FormRepository formRepository;
-    @Inject private ValidatorFactory validatorFactory;
+    @Inject private QuoteValidatorFactory validatorFactory;
 
     public static void main(String[] args) {
+        // check application.properties for port.   currently 9090.
 		SpringApplication.run(Application.class, args);
 	}
 

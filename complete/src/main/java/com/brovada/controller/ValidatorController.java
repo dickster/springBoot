@@ -18,6 +18,8 @@ import javax.inject.Inject;
 @RequestMapping(value = "/validate")
 public class ValidatorController {
 
+    // typically used in conjunction with ng2 async validators.
+
     private @Inject ValidatorFactory<Quote> validatorFactory;
 
     @RequestMapping(value = "/{validatorName}", method = RequestMethod.POST)

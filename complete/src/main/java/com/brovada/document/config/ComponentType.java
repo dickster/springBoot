@@ -1,4 +1,4 @@
-package com.brovada;
+package com.brovada.document.config;
 
 public enum ComponentType {
     GROUP, DATE_PICKER, DROP_DOWN, SELECT, TEXT_FIELD, TEXT_AREA, YES_NO, RADIO, CHECKBOX, AUTOCOMPLETE, MAP,
