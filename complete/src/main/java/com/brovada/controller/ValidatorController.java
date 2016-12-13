@@ -1,6 +1,5 @@
 package com.brovada.controller;
 
-import com.brovada.repository.QuoteRepository;
 import com.brovada.validation.ValidationResult;
 import com.brovada.validation.Validator;
 import com.brovada.validation.ValidatorFactory;
@@ -18,8 +17,6 @@ import java.util.Map;
 public class ValidatorController {
 
     // typically used in conjunction with ng2 async validators.
-
-    private @Inject QuoteRepository repository;
 
     private @Inject ValidatorFactory validatorFactory;
 

@@ -21,7 +21,7 @@ public class SampleValidatorFactory implements ValidatorFactory {
             // add other cases here...
 
             default:
-                return w -> ValidationResult.valid().withResult("msg", "hello world");
+                return parms -> ValidationResult.valid().withResult("msg", "hello world");
         }
     }
 
