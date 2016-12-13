@@ -10,31 +10,33 @@ public class ValidationResult extends HashMap<String, Object> {
 
     private static final String VALID_KEY = "isValid";
 
-    public ValidationResult() {
+    private ValidationResult() {
     }
 
     public ValidationResult(@Nonnull String key, Object value) {
         put(key, value);
     }
 
-    public ValidationResult valid(boolean valid) {
-        put(VALID_KEY, valid);
-        return this;
+    public static ValidationResult valid(boolean valid) {
+        ValidationResult result = new ValidationResult();
+        result.put(VALID_KEY, valid);
+        return result;
     }
 
-    public ValidationResult valid() {
-        put(VALID_KEY, true);
-        return this;
+    public static ValidationResult valid() {
+        return valid(true);
     }
 
-    public ValidationResult invalid() {
-        put(VALID_KEY, false);
-        return this;
+    public static ValidationResult invalid() {
+        return valid(false);
     }
 
     public ValidationResult withResult(@Nonnull String key, String value) {
-        put(key,value);
-        return this;
+        return withResult(key, (Object)value);
+    }
+
+    public ValidationResult withResult(@Nonnull String key) {
+        return withResult(key, key);
     }
 
     public ValidationResult withResult(@Nonnull String key, Object value) {
@@ -43,13 +45,11 @@ public class ValidationResult extends HashMap<String, Object> {
     }
 
     public ValidationResult withResult(@Nonnull Number code) {
-        put(code+"", code);
-        return this;
+        return withResult(code+"", code);
     }
 
     public ValidationResult withResult(@Nonnull Number code, String value) {
-        put(code + "", value);
-        return this;
+        return withResult(code+"", value);
     }
 
 }

@@ -1,9 +1,9 @@
 package com.brovada.validation;
 
 import javax.annotation.Nonnull;
+import java.util.Map;
 
-public interface Validator<T> {
+public interface Validator {
 
-
-    @Nonnull ValidationResult validate(T entity);
+    @Nonnull ValidationResult validate(Map<String,String> params);
 }

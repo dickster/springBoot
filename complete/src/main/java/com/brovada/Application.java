@@ -2,6 +2,7 @@ package com.brovada;
 
 import com.brovada.document.Broker;
 import com.brovada.document.Quote;
+import com.brovada.document.User;
 import com.brovada.document.config.ComponentConfig;
 import com.brovada.document.config.FormConfig;
 import com.brovada.document.config.LabelConfig;
@@ -10,7 +11,7 @@ import com.brovada.document.config.TextFieldConfig;
 import com.brovada.repository.BrokerRepository;
 import com.brovada.repository.FormRepository;
 import com.brovada.repository.QuoteRepository;
-import com.brovada.validation.QuoteValidatorFactory;
+import com.brovada.repository.UserRepository;
 import com.google.common.collect.Lists;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,13 +25,13 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableCaching
-@ComponentScan
+@ComponentScan("com.brovada")
 public class Application implements CommandLineRunner {
 
 	@Inject private QuoteRepository quoteRepository;
 	@Inject private BrokerRepository brokerRepository;
     @Inject private FormRepository formRepository;
-    @Inject private QuoteValidatorFactory validatorFactory;
+    @Inject private UserRepository userRepository;
 
     public static void main(String[] args) {
         // check application.properties for port.   currently 9090.
@@ -41,8 +42,6 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
         initDb();
-
-        System.out.println("validatorFactory: " + validatorFactory);
 
         System.out.println("Brokers found with findAll():");
         System.out.println("-------------------------------");
@@ -92,6 +91,11 @@ public class Application implements CommandLineRunner {
                 .withLabel("test form");
 
         formRepository.save(f);
+
+        userRepository.deleteAll();
+        userRepository.save(new User()
+                .withEmail("foo@bar.com")
+                .withName("John Doe"));
 
     }
 
