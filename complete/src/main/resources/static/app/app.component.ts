@@ -15,22 +15,27 @@ export class AppComponent {
     from:string;
     to:string;
     text:string;
+    msgs = [];
 
     constructor() {
-
     }
 
-    public connect() :void {
+    public connect(user) :void {
         var socket = new SockJS('/chat');
         this.stompClient = Stomp.over(socket);
-        var x = this.stompClient;
-        this.stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
-            x.subscribe('/topic/messages', function (message) {
-                var msg = JSON.parse(message.body);
-                console.log('got message ' + msg.from + ' --> ' + msg.to + ' : ' + msg.text );
-            });
-        });
+        this.from = user;
+        this.stompClient.connect({},this.onConnect.bind(this));
+    }
+
+    public onConnect(frame) :void {
+        console.log('Connected: ' + frame);
+        this.stompClient.subscribe('/topic/messages/'+this.from, this.addMessage.bind(this));
+    }
+
+    public addMessage(message) {
+        var msg = JSON.parse(message.body);
+        this.msgs.push(msg);
+        console.log('got message ' + msg.from + ' --> ' + msg.text );
     }
 
     public disconnect() :void {
@@ -42,13 +47,23 @@ export class AppComponent {
     }
 
     public send(from, to, text) :void {
-        this.stompClient.send("/chat", {}, JSON.stringify(
-            {'from': from, 'to':to, text:text }
+        this.stompClient.send("/chat/"+to, {}, JSON.stringify(
+            {'from': from, text:text }
         ));
     }
 
     public isConnected() : boolean {
         return this.stompClient != null;
+    }
+
+    public fromChanged(v) : void {
+        if (!v) return;
+        console.log("connecting...");
+        if (this.isConnected() && v!=from) {
+            console.log("but disconnecting first!");
+            this.disconnect();
+        }
+        this.connect(v);
     }
 
 }

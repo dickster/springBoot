@@ -5,7 +5,6 @@ import java.util.Date;
 public class Message {
     private String from;
     private String text;
-    private String to;
     private Date when;
 
     public String getFrom() {
@@ -22,14 +21,6 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
     }
 
     public Date getWhen() {

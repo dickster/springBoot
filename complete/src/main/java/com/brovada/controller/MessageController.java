@@ -1,6 +1,7 @@
 package com.brovada.controller;
 
 import com.brovada.messaging.Message;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -9,17 +10,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MessageController {
 
-    @MessageMapping("/chat")
-    @SendTo("/topic/messages")
-    public Message chat(Message message) throws Exception {
-        Thread.sleep(1000); // simulated delay - debug only.
+    @MessageMapping("/chat/{to}")
+    @SendTo("/topic/messages/{to}")
+    public Message chat(@DestinationVariable String to, Message message) throws Exception {
+        // hook to alter the message or return another object type that will be posted to /topic/....
         return message;
     }
-
-//    @MessageMapping("/fleet/{fleetId}/driver/{driverId}")
-//    @SendTo("/topic/fleet/{fleetId}")
-//    public Simple simple(@DestinationVariable String fleetId, @DestinationVariable String driverId) {
-//        return new Simple(fleetId, driverId);
-//    }
 
 }
