@@ -23,6 +23,7 @@ public class ValidatorController {
     @RequestMapping(value = "/{validatorName}", method = RequestMethod.GET)
     ValidationResult validate( @PathVariable String validatorName, @RequestParam Map<String,String> params) {
         Validator validator = validatorFactory.create(validatorName, params);
+        validator.verifyParams(params);
         ValidationResult result = validator.validate(params);
         return result;
     }

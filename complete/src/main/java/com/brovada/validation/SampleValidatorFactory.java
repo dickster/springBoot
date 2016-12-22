@@ -21,6 +21,7 @@ public class SampleValidatorFactory implements ValidatorFactory {
             // add other cases here...
 
             default:
+//                return null;  this will yield a compiler error due to @Nonnull annotation on method.
                 return parms -> ValidationResult.valid().withResult("msg", "hello world");
         }
     }

@@ -9,8 +9,9 @@ public class Broker {
     @Id
     public String id;
 
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
+    private String number;
 
     public Broker() {}
 
@@ -37,6 +38,15 @@ public class Broker {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public Broker withNumber(String number) {
+        this.number = number;
+        return this;
     }
 
     @Override

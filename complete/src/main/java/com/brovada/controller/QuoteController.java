@@ -2,7 +2,6 @@ package com.brovada.controller;
 
 import com.brovada.document.Quote;
 import com.brovada.repository.QuoteRepository;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,25 +21,22 @@ public class QuoteController {
     private @Inject QuoteRepository repository;
 
     @RequestMapping(value = "/{id}")
-    public Quote employee(@PathVariable String id) {
+    public Quote get(@PathVariable String id) {
         return repository.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Quote> employeeByName(@RequestParam(value="name", defaultValue="alice") String name) {
+    // TODO : i wouldn't really use ALICE here...it's just to show how the defaultValue could be used.
+    public List<Quote> find(@RequestParam(value="name", defaultValue="alice") String name) {
         return repository.findContains(name);
     }
 
+    // should this be PUT instead.
     @RequestMapping(method = RequestMethod.POST)
-    ResponseEntity<?> add(@RequestBody Quote input) {
+    ResponseEntity<?> save(@RequestBody Quote input) {
         System.out.print(input + " --> ");
         Quote x = this.repository.save(input);
-        //if i want this cacheable, add headers?  really, i would only want static stuff cacheable...images, pdfs, ?  static data like company names...
-        // really, this would be addressed at tomcat level.   eg. anything under url /data/blah/ mark as cacheable via web.xml.
-            HttpHeaders headers = new HttpHeaders();
-            headers.setCacheControl("private, max-age=3600");
-        //
-        System.out.println(x);
+        System.out.println(x.getId() + " : " + x);
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }
 

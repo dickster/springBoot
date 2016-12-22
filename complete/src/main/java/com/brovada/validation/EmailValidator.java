@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import java.util.Map;
 
 @Component
+@ValidationParams( {@ValidationParam(value = "email", type=String.class)} )
 public class EmailValidator implements Validator {
 
     @Inject

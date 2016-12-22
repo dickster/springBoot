@@ -18,6 +18,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableCaching
+@EnableWebSocketMessageBroker
 @ComponentScan("com.brovada")
 public class Application implements CommandLineRunner {
 
