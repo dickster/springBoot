@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'chat',
-    templateUrl: '/app/chat.html'
+    templateUrl: '/app/chat.component.html'
 })
 export class ChatComponent {
 

@@ -141,8 +141,37 @@ nav a.active {
 }
 
 
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+
+h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+}
+body {
+    margin: 2em;
+}
+
+section {
+    padding-bottom:15px;
+    padding-top:10px;
+}
+
+
+label.btn.btn-raised.active {
+    color:white;
+}
+
+
+div.form-group .checkbox label, div.form-group .radio label, div.form-group label {
+    color:#999;
+}
+
+.checkbox .checkbox-material, label.checkbox-inline .checkbox-material {
+    padding-right:5px;
+}
+
+.hint.error {
+    color: #880000;
+    font-size:12px;
+}
+

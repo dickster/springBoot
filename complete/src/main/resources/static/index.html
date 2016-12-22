@@ -13,6 +13,10 @@
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
+
+    <link href="material/css/bootstrap-material-design.css" rel="stylesheet">
+    <script src="material/js/material.js"></script>
+
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
     <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
@@ -25,11 +29,14 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+
+    <base href="/">
+
   </head>
 
   <!-- 3. Display the application -->
   <body>
-    <chat>Loading...</chat>
+    <my-app>Loading...</my-app>
   </body>
 </html>
 
