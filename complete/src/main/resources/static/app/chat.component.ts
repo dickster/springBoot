@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: '/app/my-app.html'
+    selector: 'chat',
+    templateUrl: '/app/chat.html'
 })
-export class AppComponent {
+export class ChatComponent {
 
     counter: string = 'not known';
     ws: $Websocket;

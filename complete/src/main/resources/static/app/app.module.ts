@@ -1,12 +1,12 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent }  from './app.component';
+import { ChatComponent }  from './chat.component';
 
 @NgModule({
   imports:      [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ ChatComponent ],
+  bootstrap:    [ ChatComponent ]
 })
 export class AppModule { }
 
