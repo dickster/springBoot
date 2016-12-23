@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     handleSubmit(event) {
         // console.log(this.form.value);
         event.preventDefault();
-        this.router.navigate(['/chat']);
+        this.router.navigate(['/create']);
     }
 
     ngAfterContentChecked() {
