@@ -121,7 +121,7 @@ export class InsuredComponent implements OnInit {
     handleSubmit(event) {
         console.log(this.form.value);
         event.preventDefault();
-        this.router.navigate(['/insured']);
+        this.router.navigate(['/chat']);
     }
 
 }

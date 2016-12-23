@@ -12,11 +12,11 @@
                         <input formControlName="proposal" value="Broker" type="radio">Broker
                     </label>
                 </div>
-                <div *ngIf="isBroker()" class="col-md-3">
+                <div *ngIf="isBroker()" class="col-md-4">
                     <!--<ng2-completer placeholder="Agent name or #" formControlName="broker" [dataService]="dataService"-->
                                    <!--[minSearchLength]="1">-->
                     <!--</ng2-completer>-->
-                    <input type="text" [formControlName]="broker" class="form-control">
+                    <input type="text" formControlName="broker" class="form-control">
 
                     <div class="row hint error" *ngIf="!form.valid && form.errors?.field=='broker'">
                         {{form.errors.msg}}

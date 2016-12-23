@@ -11,10 +11,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/", "/*", "/**", "/quote", "/home", "/validate", "topics", "counter", "chat").permitAll()
-                .anyRequest().authenticated();
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/", "/*", "/**", "/insured", "/chat", "/quote", "/home", "/validate", "topics", "chat").permitAll()
+//                .anyRequest().authenticated();
+//        ;
     }
 
 //    @Autowired
