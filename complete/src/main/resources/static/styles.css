@@ -171,7 +171,7 @@ div.form-group .checkbox label, div.form-group .radio label, div.form-group labe
 }
 
 .hint.error {
-    color: #880000;
+    color: #ee4444;
     font-size:12px;
 }
 

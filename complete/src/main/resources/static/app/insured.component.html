@@ -1,0 +1,111 @@
+<form class="form-horizontal" [formGroup]="form" (submit)="handleSubmit($event)">
+
+    <section>
+        <h3>Proposal</h3>
+
+            <div class="row">
+                <div class="form-group col-md-3 btn-group" data-toggle="buttons">
+                    <label class=" btn btn-raised btn-info" [class.active]="isDirect()">
+                        <input formControlName="proposal" value="Direct" type="radio">Direct
+                    </label>
+                    <label class=" btn btn-raised btn-info" [class.active]="isBroker()">
+                        <input formControlName="proposal" value="Broker" type="radio">Broker
+                    </label>
+                </div>
+                <div *ngIf="isBroker()" class="col-md-3">
+                    <!--<ng2-completer placeholder="Agent name or #" formControlName="broker" [dataService]="dataService"-->
+                                   <!--[minSearchLength]="1">-->
+                    <!--</ng2-completer>-->
+                    <input type="text" [formControlName]="broker" class="form-control">
+
+                    <div class="row hint error" *ngIf="!form.valid && form.errors?.field=='broker'">
+                        {{form.errors.msg}}
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section>
+        <h3>Customer Details</h3>
+
+        <div class="row">
+            <div class=" col-md-3 form-group">
+                <label class="control-label">First Name</label>
+                <input formControlName="firstName" type="text" class="form-control">
+            </div>
+            <div class=" col-md-3 form-group">
+                <label class="control-label">Middle Name</label>
+                <input formControlName="middleName" type="text" class="form-control">
+            </div>
+            <div class=" col-md-3 form-group">
+                <label class="control-label">Last Name</label>
+                <input formControlName="lastName" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label class="control-label">Address 1</label>
+                <input type="text" class="form-control">
+                <a> <small class="text-primary">Advanced Address</small> </a>
+            </div>
+
+            <div class="col-md-3 form-group">
+                <label class="control-label">Phone</label>
+                <input type="text" class="form-control" formControlName="phone">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col-md-3 form-group">
+                <label class="">Customer Segment</label>
+                <select class="form-control">
+                    <option value="x">Segment 1</option>
+                    <option value="y">Segment 2</option>
+                    <option value="z">Segment 3</option>
+                </select>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <section>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Cover</label>
+            </div>
+            <div *ngIf="anyCovers()" class="col-md-2">
+                <label>Commission</label>
+            </div>
+        </div>
+
+        <div formArrayName="covers">
+            <div class="row" *ngFor="let cover of myCovers; let i=index">
+                <div [formGroupName]="i">
+                    <div class="col-md-4 form-group">
+                        <div class="checkbox">
+                            <label><input formControlName="name" type="checkbox">{{cover.name}}</label>
+                        </div>
+                    </div>
+                    <div *ngIf="isCoverEnabled(i)" class="form-group col-md-2">
+                        <div class="input-group">
+                            <input type="number" formControlName="commission" class="form-control">
+                            <span class="input-group-addon">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row hint error" *ngIf="!form.valid && form.errors?.field=='commission'">
+                {{form.errors.msg}}
+            </div>
+        </div>
+
+    </section>
+
+    <div class="form-group ">
+        <button type="submit" class="btn btn-raised btn-info btn-lg" role="button" [disabled]="!form.valid">Next</button>
+    </div>
+
+</form>
