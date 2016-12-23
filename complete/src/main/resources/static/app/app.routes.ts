@@ -1,8 +1,10 @@
 import {ChatComponent} from "./chat.component";
+import {LoginComponent} from "./login.component";
 
 
 export const AppRoutes:Routes = [
-    { path: '', component: ChatComponent },
+    { path: '', component: LoginComponent },
+    { path: 'login', component: ChatComponent },
     { path: 'chat', component: ChatComponent }
 
 //    { path: 'login', component: LoginComponent },  // not needed..redundant???
