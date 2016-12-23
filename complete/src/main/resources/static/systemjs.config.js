@@ -1,69 +1,3 @@
-/**
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
-//(function(global) {
-//    // map tells the System loader where to look for things
-//    var map = {
-//        'app':                        'app', // 'dist',
-//        '@angular':                   'node_modules/@angular',
-//        'ng2-translate': 'npm:npm:ng2-translate/bundles/ng2-translate.umd.js',
-//        'rxjs':                       'node_modules/rxjs'
-//    };
-//    // packages tells the System loader how to load when no filename and/or no extension
-//    var packages = {
-//        'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
-//        "ng2-translate": {
-//            main: "bundles/index.js",
-//            defaultExtension: "js"
-//        },
-//        'rxjs':                       { defaultExtension: 'js' }
-//    };
-//    var ngPackageNames = [
-//        'common',
-//        'compiler',
-//        'core',
-//        'forms',
-//        'http',
-//        'platform-browser',
-//        'platform-browser-dynamic',
-//        'router',
-//        'router-deprecated',
-//        'upgrade'
-//    ];
-//
-//
-//    // Individual files (~300 requests):
-//    function packIndex(pkgName) {
-//        packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
-//    }
-//    // Bundled (~40 requests):
-//    function packUmd(pkgName) {
-//        packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
-//    }
-//    // Most environments should use UMD; some (Karma) need the individual index files
-//    var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
-//    // Add package entries for angular packages
-//    ngPackageNames.forEach(packUmd);//setPackageConfig);
-//
-//    var config = {
-////        transpiler: 'ts',
-//        typescriptOptions: {
-//          tsconfig: true
-//        },
-//        meta: {
-//          'typescript': {
-//            "exports": "ts"
-//          }
-//        },
-//        map: map,
-//        packages: packages
-//    };
-//    System.config(config);
-//})(this);
-
-
-
 
 (function(global) {
 
@@ -132,9 +66,3 @@
 
 })(this);
 
-
-///*
-//Copyright 2016 Google Inc. All Rights Reserved.
-//Use of this source code is governed by an MIT-style license that
-//can be found in the LICENSE file at http://angular.io/license
-//*/
