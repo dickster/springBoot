@@ -19,10 +19,9 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: '/app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof forms_1.FormBuilder !== 'undefined' && forms_1.FormBuilder) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [forms_1.FormBuilder])
     ], AppComponent);
     return AppComponent;
-    var _a;
 }());
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

@@ -1,9 +1,11 @@
 
 import {Directive, Input, ElementRef, Component} from '@angular/core';
 import { CompleterService, CompleterData } from 'ng2-completer';
+import {COMMON_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 
 @Component(
     {   selector: 'autocomplete',
+        directives: [COMMON_DIRECTIVES,FORM_DIRECTIVES],
         template: '<ng2-completer [(ngModel)]="searchStr" [dataService]="dataService" [minSearchLength]="0"></ng2-completer>'
     })
 export class AutoComplete {

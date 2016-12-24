@@ -4,7 +4,7 @@
         <h3>Proposal</h3>
 
             <div class="row">
-                <div class="form-group col-md-3 btn-group" data-toggle="buttons">
+                <div class="form-group col-md-4 btn-group" data-toggle="buttons">
                     <label class=" btn btn-raised btn-info" [class.active]="isDirect()">
                         <input formControlName="proposal" value="Direct" type="radio">Direct
                     </label>
@@ -13,10 +13,11 @@
                     </label>
                 </div>
                 <div *ngIf="isBroker()" class="col-md-4">
-                    <!--<ng2-completer placeholder="Agent name or #" formControlName="broker" [dataService]="dataService"-->
-                                   <!--[minSearchLength]="1">-->
-                    <!--</ng2-completer>-->
-                    <input type="text" formControlName="broker" class="form-control">
+
+                    <ng2-completer placeholder="Agent name or #" #brokerInput formControlName="broker" [dataService]="dataService"
+                                   [minSearchLength]="1">
+                    </ng2-completer>
+                    <!--<input type="text" formControlName="broker" class="form-control">-->
 
                     <div class="row hint error" *ngIf="!form.valid && form.errors?.field=='broker'">
                         {{form.errors.msg}}

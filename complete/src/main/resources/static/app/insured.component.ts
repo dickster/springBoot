@@ -2,7 +2,7 @@ import {Component, OnInit, ElementRef} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
-//import {CompleterData, CompleterService} from "ng2-completer";
+import {CompleterData, CompleterService} from "ng2-completer";
 
 
 declare var jQuery:any;
@@ -15,7 +15,8 @@ declare var jQuery:any;
 export class InsuredComponent implements OnInit {
 
     form: FormGroup;
-  //  private dataService: CompleterData;
+    private dataService: CompleterData;
+    brokerInput:string;
 
     private searchData = [
         //TODO : turn this into REST service with parameters.  takes segment into account.
@@ -46,9 +47,9 @@ export class InsuredComponent implements OnInit {
     constructor(
         private router: Router,
         private formBuilder: FormBuilder,
-     //   private completerService: CompleterService,
+        private completerService: CompleterService,
         private elementRef:ElementRef) {
-      //  this.dataService = completerService.local(this.searchData, 'name', 'name');
+        this.dataService = completerService.local(this.searchData, 'name', 'name');
     }
 
     ngOnInit() {
@@ -101,10 +102,9 @@ export class InsuredComponent implements OnInit {
     }
 
     isFormValid(form):any {
-        // TODO : merge these objects.
-        if (form.controls.proposal.value=='Broker' && !form.controls.broker.value) {
-            return {msg:'no broker specified', field:'broker'};
-        }
+//        if (form.controls.proposal.value=='Broker' && !form.controls.broker.value) {
+//            return {msg:'no broker specified', field:'broker'};
+//        }
         let result:number = 0;
         let pristine:boolean = true;
         for (let cover of form.controls.covers.controls) {
