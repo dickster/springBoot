@@ -19,6 +19,8 @@ public class QBroker extends EntityPathBase<Broker> {
 
     public static final QBroker broker = new QBroker("broker");
 
+    public final StringPath desc = createString("desc");
+
     public final StringPath firstName = createString("firstName");
 
     public final StringPath id = createString("id");
