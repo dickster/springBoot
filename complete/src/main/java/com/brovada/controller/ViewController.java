@@ -8,7 +8,7 @@ public class ViewController {
 
     // need to tell spring to reroute all angular genrated urls back to SPA index.html
 //    @RequestMapping({  "/foo/{id:\\w+}" })
-    @RequestMapping({ "/", "/app","/insured", "/chat", "/create", "/login",  "/location" })
+    @RequestMapping({ "/", "/admin", "/app","/insured", "/chat", "/create", "/login",  "/location" })
     public String index() {
         return "forward:/index.html";
     }
