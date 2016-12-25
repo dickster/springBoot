@@ -1,7 +1,6 @@
-
 import {Directive, Input, ElementRef, Component} from '@angular/core';
 import { CompleterService, CompleterData } from 'ng2-completer';
-import {COMMON_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {COMMON_DIRECTIVES, FORM_DIRECTIVES} from '@angular2/common';
 
 @Component(
     {   selector: 'autocomplete',

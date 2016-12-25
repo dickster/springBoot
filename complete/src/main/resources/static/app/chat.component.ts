@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
 })
 export class ChatComponent {
 
-    counter: string = 'not known';
-    ws: $Websocket;
-    cws: $Websocket;
-    sock : SockJS;
-    dd:SockJS;
     stompClient:Stomp;
     from:string;
     to:string;

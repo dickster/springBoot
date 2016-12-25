@@ -2,7 +2,7 @@ import {Component, OnInit, ElementRef} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
-import {CompleterData, CompleterService} from "ng2-completer";
+import {RemoteData, CompleterService} from "ng2-completer";
 
 
 declare var jQuery:any;
@@ -15,7 +15,7 @@ declare var jQuery:any;
 export class InsuredComponent implements OnInit {
 
     form: FormGroup;
-    private dataService: CompleterData;
+    private dataService: RemoteData;
 
     private searchData = [
         //TODO : turn this into REST service with parameters.  takes segment into account.
@@ -49,8 +49,7 @@ export class InsuredComponent implements OnInit {
         private completerService: CompleterService,
         private elementRef:ElementRef) {
 
-
-        this.dataService = completerService.remote(url, 'name', 'name');
+        this.dataService = completerService.remote('http://localhost:9090/broker?search=', '', 'firstName');
     }
 
     ngOnInit() {

@@ -1,6 +1,6 @@
 package com.brovada.controller;
 
-import com.brovada.messaging.Message;
+import com.brovada.document.Message;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
