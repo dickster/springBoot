@@ -18,6 +18,7 @@ public class Broker {
     public Broker(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.number = "" +(int)(Math.random()*1000);
     }
 
     public String getId() {
@@ -44,7 +45,7 @@ public class Broker {
         return number;
     }
 
-    public Broker withNumber(String number) {
+    public Broker getNumber(String number) {
         this.number = number;
         return this;
     }

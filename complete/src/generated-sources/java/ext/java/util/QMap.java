@@ -23,10 +23,6 @@ public class QMap extends BeanPath<Map<?, ?>> {
 
     public final BooleanPath empty = createBoolean("empty");
 
-    public final NumberPath<Float> loadFactor = createNumber("loadFactor", Float.class);
-
-    public final NumberPath<Integer> threshold = createNumber("threshold", Integer.class);
-
     @SuppressWarnings({"all", "rawtypes", "unchecked"})
     public QMap(String variable) {
         super((Class) Map.class, forVariable(variable));

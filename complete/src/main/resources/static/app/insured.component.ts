@@ -16,7 +16,6 @@ export class InsuredComponent implements OnInit {
 
     form: FormGroup;
     private dataService: CompleterData;
-    brokerInput:string;
 
     private searchData = [
         //TODO : turn this into REST service with parameters.  takes segment into account.
@@ -49,7 +48,9 @@ export class InsuredComponent implements OnInit {
         private formBuilder: FormBuilder,
         private completerService: CompleterService,
         private elementRef:ElementRef) {
-        this.dataService = completerService.local(this.searchData, 'name', 'name');
+
+
+        this.dataService = completerService.remote(url, 'name', 'name');
     }
 
     ngOnInit() {

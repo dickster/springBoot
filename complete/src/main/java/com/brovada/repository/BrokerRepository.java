@@ -3,8 +3,8 @@ package com.brovada.repository;
 import com.brovada.document.Broker;
 import com.brovada.document.QBroker;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
@@ -18,19 +18,20 @@ public interface BrokerRepository extends MongoRepository<Broker, String>, Query
     public List<Broker> findByLastNameIgnoreCase(String lastName);
     public List<Broker> findTop30ByLastName(String lastName);
 
-    @Cacheable("broker")
-    default public List<Broker> find(String name) {
+   // @Cacheable("broker")
+    default public List<Broker> find(String search) {
         QBroker broker = new QBroker("x");
 
-        if (name!=null && name.length()>0) {
+        if (StringUtils.isNotBlank(search)) {
             Iterable<Broker> result = findAll(
-                    broker.firstName.containsIgnoreCase(name).
-                        or(broker.lastName.containsIgnoreCase(name))
+                    broker.number.containsIgnoreCase(search)
+                      .or(broker.firstName.containsIgnoreCase(search))
+                      .or(broker.lastName.containsIgnoreCase(search))
             );
             return Lists.newArrayList(result);
         }
         else {
-            return Lists.newArrayList();
+            return findAll();
         }
     }
 

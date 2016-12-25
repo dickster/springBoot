@@ -2,7 +2,6 @@ package com.brovada.controller;
 
 import com.brovada.document.Broker;
 import com.brovada.repository.BrokerRepository;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,21 +20,26 @@ public class BrokerController {
 
     private @Inject BrokerRepository repository;
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Broker> all() {
+        return repository.findAll();
+    }
+
     @RequestMapping(value = "/{id}")
     public Broker employee(@PathVariable String id) {
         return repository.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Broker> employeeByName(@RequestParam(value="name", defaultValue="") String name) {
-        return repository.find(name);
+    public List<Broker> findByName(@RequestParam(value="search", defaultValue="") String search) {
+        return repository.find(search);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<?> add(@RequestBody Broker input) {
         Broker x = this.repository.save(input);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setCacheControl("public, max-age=290304000");
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setCacheControl("public, max-age=290304000");
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }
 

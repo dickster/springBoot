@@ -26,6 +26,8 @@ public class QBroker extends EntityPathBase<Broker> {
 
     public final StringPath lastName = createString("lastName");
 
+    public final StringPath number = createString("number");
+
     public QBroker(String variable) {
         super(Broker.class, forVariable(variable));
     }
