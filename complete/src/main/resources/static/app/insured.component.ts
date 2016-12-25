@@ -49,7 +49,7 @@ export class InsuredComponent implements OnInit {
         private completerService: CompleterService,
         private elementRef:ElementRef) {
 
-        this.dataService = completerService.remote('http://localhost:9090/broker?search=', '', 'firstName');
+        this.dataService = completerService.remote('/broker?search=', '', 'firstName, lastName');
     }
 
     ngOnInit() {
@@ -58,8 +58,10 @@ export class InsuredComponent implements OnInit {
     }
 
     ngAfterContentChecked() {
+        // ToDO : put this into common page component.
+        // or add jquery.on("document router-outlet").fn(){material.init9)};
         jQuery.material.init();
-        jQuery(this.elementRef.nativeElement).find('.completer-input').addClass('form-control');
+      //  jQuery(this.elementRef.nativeElement).find('.completer-input').addClass('form-control');
     }
 
     isBroker(): boolean {
