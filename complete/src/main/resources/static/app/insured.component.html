@@ -14,7 +14,7 @@
                 </div>
                 <div *ngIf="isBroker()" class="col-md-4">
 
-                    <ng2-completer inputClass="form-control" placeholder="Agent name or #" #brokerInput formControlName="broker" [dataService]="dataService"
+                    <ng2-completer textSearching="searching for brokers..." autoMatch matchClass="match" inputClass="form-control" placeholder="Agent name or #" #brokerInput formControlName="broker" [dataService]="dataService"
                                    [minSearchLength]="1">
                     </ng2-completer>
                     <!--<input type="text" formControlName="broker" class="form-control">-->

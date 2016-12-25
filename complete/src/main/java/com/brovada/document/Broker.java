@@ -12,6 +12,7 @@ public class Broker {
     private String firstName;
     private String lastName;
     private String number;
+    private String desc;
 
     public Broker() {}
 
@@ -19,6 +20,11 @@ public class Broker {
         this.firstName = firstName;
         this.lastName = lastName;
         this.number = "" +(int)(Math.random()*1000);
+        this.desc = makeDesc();
+    }
+
+    private String makeDesc() {
+        return firstName + " " + lastName + "  (" + number + ")";
     }
 
     public String getId() {
@@ -58,5 +64,10 @@ public class Broker {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    public String getDesc() {
+        return desc;
+    }
+
 }
 

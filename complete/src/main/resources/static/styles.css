@@ -161,6 +161,9 @@ label.btn.btn-raised.active {
     color:white;
 }
 
+.match {
+    color:blue;
+}
 
 div.form-group .checkbox label, div.form-group .radio label, div.form-group label {
     color:#999;
