@@ -10,12 +10,12 @@ export class ChatComponent {
     from:string;
     to:string;
     text:string;
-    msgs = [];
+    msgs:any[] = [];
 
     constructor() {
     }
 
-    public connect(user) :void {
+    public connect(user:string) :void {
         var socket = new SockJS('/chat');
         this.stompClient = Stomp.over(socket);
         this.from = user;
@@ -41,7 +41,7 @@ export class ChatComponent {
         console.log("Disconnected");
     }
 
-    public send(from, to, text) :void {
+    public send(from:string, to:string, text:string) :void {
         this.stompClient.send("/chat/"+to, {}, JSON.stringify(
             {'from': from, text:text }
         ));
@@ -54,7 +54,7 @@ export class ChatComponent {
     public fromChanged(v) : void {
         if (!v) return;
         console.log("connecting...");
-        if (this.isConnected() && v!=from) {
+        if (this.isConnected() && v!=this.from) {
             console.log("but disconnecting first!");
             this.disconnect();
         }

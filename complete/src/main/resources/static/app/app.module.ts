@@ -12,11 +12,17 @@ import { ChatComponent }  from './chat.component';
 import { LoginComponent }  from './login.component';
 import {CreateAccountComponent} from './createAccount.component';
 import {AdminComponent} from './admin.component';
+import {RestService} from './rest.service';
+import { HttpModule } from '@angular/http';
+import {Broker} from './broker';
+
+
 
 @NgModule({
-    imports:      [ BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
+    imports:      [ HttpModule, BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
 //    imports:      [ BrowserModule, Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
     declarations: [ AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
+    providers: [RestService],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

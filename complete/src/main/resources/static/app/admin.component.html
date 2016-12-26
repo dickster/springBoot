@@ -2,61 +2,67 @@
 
     <form class="form-horizontal" [formGroup]="form" (submit)="handleSubmit($event)">
 
-    <div class="row">
-        <div class="form-group col-md-12 btn-group" data-toggle="buttons">
-            <label class=" btn btn-raised btn-info" [class.active]="isForms()">
-                <input formControlName="tab" value="forms" type="radio">Forms
-            </label>
-            <label class=" btn btn-raised btn-info" [class.active]="isMessages()">
-                <input formControlName="tab" value="messages" type="radio">Messages
-            </label>
-            <label class=" btn btn-raised btn-info" [class.active]="isBrokers()">
-                <input formControlName="tab" value="brokers" type="radio">Brokers
-            </label>
-            <label class=" btn btn-raised btn-info" [class.active]="isQuotes()">
-                <input formControlName="tab" value="quotes" type="radio">Quotes
-            </label>
+        <div class="row">
+            <div class="form-group col-md-10 btn-group" data-toggle="buttons">
+                <label class=" btn btn-raised btn-info" [class.active]="isForms()">
+                    <input formControlName="tab" value="forms" type="radio">Forms
+                </label>
+                <label class=" btn btn-raised btn-info" [class.active]="isMessages()">
+                    <input formControlName="tab" value="messages" type="radio">Messages
+                </label>
+                <label class=" btn btn-raised btn-info" [class.active]="isBrokers()">
+                    <input formControlName="tab" value="brokers" type="radio">Brokers
+                </label>
+                <label class=" btn btn-raised btn-info" [class.active]="isQuotes()">
+                    <input formControlName="tab" value="quotes" type="radio">Quotes
+                </label>
+            </div>
+            <span class="col-md-1 col-md-offset-1"><a role="button" routerLink="/login">Home</a></span>
         </div>
-    </div>
+
+
+
 
     </form>
 
-    <table *ngIf="isForms()">
+    <div class="row">
+    <table  class="col-md-6" *ngIf="isForms()">
         <caption>Forms</caption>
         <thead>
             <th>Name</th>
             <th>Conent</th>
         </thead>
     </table>
-    <table *ngIf="isMessages()">
+    <table class="col-md-6" *ngIf="isMessages()">
         <caption>Messages</caption>
         <thead>
             <th>From</th>
             <th>To</th>
             <th>Text</th>
         </thead>
-    </table>
-    <table *ngIf="isQuotes()">
+
+        </table>
+    <table class="col-md-6"  *ngIf="isQuotes()">
         <caption>Quotes</caption>
         <thead>
             <th>Name</th>
             <th>Content</th>
         </thead>
     </table>
-    <table *ngIf="isBrokers()">
+    <table  class="col-md-6" *ngIf="isBrokers()">
         <caption>Brokers</caption>
         <thead>
             <th>First</th>
             <th>Last</th>
             <th>Number</th>
         </thead>
+        <tr *ngFor="let broker of brokers | async">
+            <td>{{broker.firstName}}</td>
+            <td>{{broker.lastName}}</td>
+            <td>{{broker.number}}</td>
+        </tr>
     </table>
+</div>
 
-
-    <footer>
-        <div class="row">
-            <span class="col-md-4"><a role="button" routerLink="/login">Home</a></span>
-        </div>
-    </footer>
 
 </div>
