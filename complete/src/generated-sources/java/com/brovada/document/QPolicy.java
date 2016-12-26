@@ -26,7 +26,7 @@ public class QPolicy extends EntityPathBase<Policy> {
 
     public final StringPath id = createString("id");
 
-    public final SimplePath<java.util.Optional<String>> policyNumber = createSimple("policyNumber", java.util.Optional.class);
+    public final StringPath policyNumber = createString("policyNumber");
 
     public final StringPath primaryQuote = createString("primaryQuote");
 

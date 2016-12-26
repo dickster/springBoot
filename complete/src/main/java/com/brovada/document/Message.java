@@ -42,4 +42,10 @@ public class Message {
     public void setTo(String to) {
         this.to = to;
     }
+
+    // should only be set by controller..make this package protected?
+    public Message sentTo(String to) {
+        this.to = to;
+        return this;
+    }
 }

@@ -25,6 +25,11 @@ public class QuoteController {
         return repository.findOne(id);
     }
 
+    @RequestMapping(value = "/all")
+    public List<Quote> all() {
+        return repository.findAll();
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     // TODO : i wouldn't really use ALICE here...it's just to show how the defaultValue could be used.
     public List<Quote> find(@RequestParam(value="name", defaultValue="alice") String name) {

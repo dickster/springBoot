@@ -15,6 +15,7 @@ public class QuoteResult {
 
     private double totalPremium;
     private Date created;
+    // TODO : change to @Nullable
     private Optional<List<String>> notes;
     private long status;
     private Date expiry;

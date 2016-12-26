@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+// import Stomp from 'stompjs';
+// import * as SockJS from 'sockjs-client';
+
+// var SockJS = require('sockjs-client');
+// var Stomp = require('stompjs');
 
 @Component({
     selector: 'chat',

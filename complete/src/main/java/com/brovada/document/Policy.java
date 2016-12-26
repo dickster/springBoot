@@ -5,9 +5,9 @@ import com.google.common.collect.Lists;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Document
 // TODO : rename QuoteGroup, Quotes...?
@@ -21,7 +21,8 @@ public class Policy {
     private Date created;
     // TODO : turn this into a list of comment objects (each having user/date/text/links/attachments etc..)
     private String comments;
-    private Optional<String> policyNumber; // reference to real, bound policy in system.
+    private @Nullable
+    String policyNumber; // reference to real, bound policy in system.
 
     public Policy() {
         created = new Date();

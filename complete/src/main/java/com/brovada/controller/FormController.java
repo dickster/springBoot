@@ -12,12 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/form")
 public class FormController {
 
     private @Inject FormRepository repository;
+
+
+    @RequestMapping(value = "/all")
+    public List<FormConfig> all() {
+        return repository.findAll();
+    }
+
 
     @RequestMapping(value = "/{id}")
     public FormConfig get(@PathVariable String id) {

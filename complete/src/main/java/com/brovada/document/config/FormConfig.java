@@ -13,6 +13,7 @@ public class FormConfig extends PanelConfig {
 
     private @Nonnull BigDecimal version;
 
+    // TODO : change these optionals to @Nullables!!!
     private Optional<Locale> locale = Optional.empty();
     private Optional<String> initialFocus = Optional.empty();
     private Optional<LayoutHint> layoutHint = Optional.empty();
