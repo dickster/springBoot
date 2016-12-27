@@ -3,7 +3,6 @@ package com.brovada.document.config;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Optional;
@@ -13,26 +12,25 @@ public class FormConfig extends PanelConfig {
 
     private @Nonnull BigDecimal version;
 
-    // TODO : change these optionals to @Nullables!!!
-    private Optional<Locale> locale = Optional.empty();
-    private Optional<String> initialFocus = Optional.empty();
-    private Optional<LayoutHint> layoutHint = Optional.empty();
+    private @Nonnull Locale locale = Locale.getDefault();
+    private String initialFocus;
+    private LayoutHint layoutHint;
 
     public FormConfig() {
     }
 
     public FormConfig withLocale(@Nonnull Locale locale) {
-        this.locale = Optional.of(locale);
+        this.locale = locale;
         return this;
     }
 
     public FormConfig withInitialFocus(@Nonnull String inputId) {
-        this.initialFocus = Optional.of(inputId);
+        this.initialFocus = inputId;
         return this;
     }
 
     public FormConfig withLayoutHint(@Nonnull LayoutHint layoutHint) {
-        this.layoutHint = Optional.of(layoutHint);
+        this.layoutHint = layoutHint;
         return this;
     }
 
@@ -62,17 +60,17 @@ public class FormConfig extends PanelConfig {
 
     @Nonnull
     public Locale getLocale() {
-        return locale.orElse(Locale.getDefault());
+        return locale;
     }
 
-    @Nullable
-    public String getInitialFocus() {
-        return initialFocus.orElse(null);
+
+    public Optional<String> getInitialFocus() {
+        return Optional.ofNullable(initialFocus);
     }
 
-    @Nullable
-    public LayoutHint getLayoutHint() {
-        return layoutHint.orElse(null);
+
+    public Optional<LayoutHint> getLayoutHint() {
+        return Optional.of(layoutHint);
     }
 
     public String getId() {

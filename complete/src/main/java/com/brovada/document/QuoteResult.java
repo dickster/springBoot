@@ -1,10 +1,10 @@
 package com.brovada.document;
 
+import com.google.common.collect.Lists;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Document
 public class QuoteResult {
@@ -15,8 +15,7 @@ public class QuoteResult {
 
     private double totalPremium;
     private Date created;
-    // TODO : change to @Nullable
-    private Optional<List<String>> notes;
+    private List<String> notes = Lists.newArrayList();
     private long status;
     private Date expiry;
     private String quoteMethod;
