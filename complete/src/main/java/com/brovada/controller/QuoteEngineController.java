@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping(value = "/quote/calculate")
@@ -25,12 +25,11 @@ public class QuoteEngineController {
     @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<QuoteResult> add(@RequestBody Quote quote) {
         System.out.print("calculating quote for " + quote);
-
         double total = calculate(quote);
         QuoteResult result = QuoteResult.success(total);
-        quote.result = Optional.of(result);
+        quote.setResult(result);
         quoteRepository.save(quote);
-        return new ResponseEntity<QuoteResult>(result, HttpStatus.OK);
+        return new ResponseEntity(result, HttpStatus.OK);
     }
 
     private double calculate(Quote quote) {

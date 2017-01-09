@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -23,7 +24,7 @@ public class QQuoteResult extends EntityPathBase<QuoteResult> {
 
     public final DateTimePath<java.util.Date> expiry = createDateTime("expiry", java.util.Date.class);
 
-    public final SimplePath<java.util.Optional<java.util.List<String>>> notes = createSimple("notes", java.util.Optional.class);
+    public final ListPath<String, StringPath> notes = this.<String, StringPath>createList("notes", String.class, StringPath.class, PathInits.DIRECT2);
 
     public final StringPath quoteMethod = createString("quoteMethod");
 

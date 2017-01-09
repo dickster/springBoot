@@ -13,10 +13,12 @@ import { LoginComponent }  from './login.component';
 import {CreateAccountComponent} from './createAccount.component';
 import {AdminComponent} from './admin.component';
 import {QuoteService} from './quote.service';
+import {QuoteEngineService} from './quoteEngine.service';
 import {MessageService} from './message.service';
 import {FormService} from './form.service';
 import {BrokerService} from './broker.service';
 import { HttpModule } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 
 
@@ -24,7 +26,7 @@ import { HttpModule } from '@angular/http';
     imports:      [ HttpModule, BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
 //    imports:      [ BrowserModule, Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
     declarations: [ AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
-    providers: [QuoteService, BrokerService, MessageService, FormService],
+    providers: [QuoteService, BrokerService, MessageService, FormService, QuoteEngineService],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
-
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs/Observable';
 
@@ -10,7 +9,7 @@ export class RestService<T> {
     private actionUrl: string;
     private headers: Headers;
 
-    constructor(public _http: Http ) {
+    constructor(public http: Http ) {
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
@@ -21,8 +20,16 @@ export class RestService<T> {
         return this;
     }
 
+    public put(data:T) : Observable<T> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.actionUrl, data, options) // ...using post request
+            .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if
+    }
+
     public get(): Observable<T[]> {
-       return this._http.get(this.actionUrl)
+       return this.http.get(this.actionUrl)
             .map((response: Response) => <T[]>response.json())
             .catch(this.handleError);
     // console.log('hello');

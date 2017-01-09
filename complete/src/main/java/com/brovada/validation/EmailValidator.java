@@ -22,7 +22,7 @@ public class EmailValidator implements Validator {
         String email = params.get("email");
         User userWithEmail = userRepository.findByEmail(email);
         if (userWithEmail==null) {
-            return ValidationResult.valid().withResult("it works");
+            return ValidationResult.valid().withResult("msg", "yay!");
         }
         else {
             return ValidationResult.invalid().withResult(-735, "email address " + email + " already in use");

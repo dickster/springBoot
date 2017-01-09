@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
 
@@ -31,12 +31,11 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
 
         this.passwords = this.formBuilder.group({
-            [PASSWORD]: ['', Validators.required],
-            [CONFIRM]:  ['', Validators.required]
-        },
+                [PASSWORD]: ['', Validators.required],
+                [CONFIRM]:  ['', Validators.required]
+            },
             {validator: this.matchPassword}
         );
-
         this.form = this.formBuilder.group({
                 [USER]: ['',Validators.required],
                 [PASSWORDS] : this.passwords
@@ -45,7 +44,8 @@ export class LoginComponent implements OnInit {
 
     }
 
-    handleSubmit(event) {
+
+    handleSubmit(event:any) {
         // console.log(this.form.value);
         event.preventDefault();
         this.router.navigate(['/insured']);
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         jQuery(this.elementRef.nativeElement).find('.completer-input').addClass('form-control');
     }
 
-    matchPassword(group): any {
+    matchPassword(group:any): any {
         let password = group.controls.password;
         let confirm = group.controls.confirm;
 

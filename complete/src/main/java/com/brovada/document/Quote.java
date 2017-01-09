@@ -3,6 +3,7 @@ package com.brovada.document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.Optional;
 
@@ -16,8 +17,8 @@ public class Quote {
     public String lastName;
     public Date startDate;
     public Date endDate;
+    public @Nullable QuoteResult result;
     // etc...
-    public Optional<QuoteResult> result = Optional.empty();
 
     public Quote() {}
 
@@ -65,6 +66,10 @@ public class Quote {
         this.endDate = endDate;
     }
 
+    public Optional<QuoteResult> getResult() {
+        return Optional.ofNullable(result);
+    }
+
 
     @Override
     public String toString() {
@@ -75,6 +80,10 @@ public class Quote {
                 ", lastName='" + lastName + '\'' +
                 ", startDate=" + startDate +
                 '}';
+    }
+
+    public void setResult(@Nullable QuoteResult result) {
+        this.result = result;
     }
 }
 

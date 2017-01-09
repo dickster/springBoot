@@ -1,17 +1,25 @@
 <form class="form-horizontal" [formGroup]="form" (submit)="handleSubmit($event)">
 
-    <section>
+
+    <section class="col-md-3">
+<!--hello                <input type="text" class="form-control">-->
         <h3>Create Account</h3>
-    </section>
-
-    <div class="form-group">
-        <a role="button" routerLink="/create">Create Account</a>
-    </div>
-
-    <footer>
         <div class="form-group">
-            <button type="submit" class="btn btn-raised btn-info btn-lg" role="button">Create</button>
+            <label class="control-label" >User Name</label>
+            <input formControlName="username" type="text" class="form-control">
+            <small class="hint error" *ngIf="form.controls.username.touched && !form.controls.username.valid">{{form.controls.username.errors.isValid}}</small>
         </div>
-    </footer>
+        <div class="form-group" >
+            <label class="control-label" >Email</label>
+            <input formControlName="email" type="text" class="form-control">
+            <!--TODO : change this to display error message name.-->
+            <small class="hint error" *ngIf="form.controls.email.touched && !form.controls.email.valid">You need an email address!</small>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-raised btn-info btn-lg" [disabled]="!form.valid" role="button">Create</button>
+        </div>
+
+    </section>
 
 </form>

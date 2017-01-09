@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,8 +16,6 @@ import com.querydsl.core.types.dsl.PathInits;
 public class QFormConfig extends EntityPathBase<FormConfig> {
 
     private static final long serialVersionUID = -2090847181L;
-
-    private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QFormConfig formConfig = new QFormConfig("formConfig");
 
@@ -32,12 +29,12 @@ public class QFormConfig extends EntityPathBase<FormConfig> {
 
     public final StringPath id = createString("id");
 
-    public final StringPath initialFocus = createString("initialFocus");
+    public final SimplePath<java.util.Optional<String>> initialFocus = createSimple("initialFocus", java.util.Optional.class);
 
     //inherited
     public final StringPath label = _super.label;
 
-    public final QLayoutHint layoutHint;
+    public final SimplePath<java.util.Optional<LayoutHint>> layoutHint = createSimple("layoutHint", java.util.Optional.class);
 
     public final SimplePath<java.util.Locale> locale = createSimple("locale", java.util.Locale.class);
 
@@ -54,24 +51,15 @@ public class QFormConfig extends EntityPathBase<FormConfig> {
     public final NumberPath<java.math.BigDecimal> version = createNumber("version", java.math.BigDecimal.class);
 
     public QFormConfig(String variable) {
-        this(FormConfig.class, forVariable(variable), INITS);
+        super(FormConfig.class, forVariable(variable));
     }
 
     public QFormConfig(Path<? extends FormConfig> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QFormConfig(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QFormConfig(PathMetadata metadata, PathInits inits) {
-        this(FormConfig.class, metadata, inits);
-    }
-
-    public QFormConfig(Class<? extends FormConfig> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.layoutHint = inits.isInitialized("layoutHint") ? new QLayoutHint(forProperty("layoutHint")) : null;
+        super(FormConfig.class, metadata);
     }
 
 }

@@ -45,7 +45,7 @@ public class ValidationResult extends HashMap<String, Object> {
     }
 
     public ValidationResult withResult(@Nonnull Number code) {
-        return withResult(code+"", code);
+        return withResult("code", code);
     }
 
     public ValidationResult withResult(@Nonnull Number code, String value) {
