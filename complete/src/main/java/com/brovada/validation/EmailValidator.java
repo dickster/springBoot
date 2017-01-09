@@ -25,7 +25,7 @@ public class EmailValidator implements Validator {
             return ValidationResult.valid().withResult("msg", "yay!");
         }
         else {
-            return ValidationResult.invalid().withResult(-735, "email address " + email + " already in use");
+            return ValidationResult.invalid().withResult("msg", "email address " + email + " already in use");
         }
     }
 }

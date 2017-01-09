@@ -7,6 +7,7 @@ import { Response, Http } from '@angular/http';
 import 'rxjs/Observable';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 
 const EMAIL = 'email';
@@ -47,28 +48,22 @@ export class CreateAccountComponent implements OnInit {
 
     private checkEmail(control: FormControl): Promise<any> {
 
-        const promise = new Promise<any>(
-            (resolve, reject) => {
-
-                this.http.get('/validate/email?email='+control.value)
-                    .debounceTime(500)
-                    .distinctUntilChanged()
-                    .map(res => res.json())
-                    .subscribe(
-                    (res: Response) => {
-                        console.log(res);
-                        if (!res.isValid) {
-                            resolve(res);
-                        } else {
-                            resolve(null);
-                        }
-                    },
-                    (err:any) => {
-                        console.log(err);
-                    }
-                )
-            }
-        );
+        // TODO : throttle this!!!
+        const promise :Promise<any> = new Promise<any>((resolve, reject) => {
+                    this.http.get('/validate/email?email=' + control.value)
+                     .debounceTime(500)
+                    // .distinctUntilChanged()
+                        .map(res => res.json())
+                        .subscribe(
+                            (res: Response) => {
+                                console.log(res);
+                                resolve(res.isValid ? null : res);
+                            },
+                            (err: any) => {
+                                console.log(err);
+                            }
+                        )
+            });
         return promise;
     }
 
