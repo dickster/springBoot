@@ -29,10 +29,15 @@ export class CreateAccountComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-                [EMAIL]: ['',, (control:FormControl) => { return this.checkEmail(control)}],
+                 // [EMAIL]: ['',, (control:FormControl) => { return this.checkEmail(control)}],
+                [EMAIL]: [''],
                 [USERNAME] : ['', Validators.required]
             }
         );
+    }
+
+    public checkUniqueEmail(value:string) : Promise<any> {
+        this.checkEmail(this.form.controls.email);
     }
 
     ngAfterContentChecked() {
@@ -50,22 +55,24 @@ export class CreateAccountComponent implements OnInit {
 
         // TODO : throttle this!!!
         const promise :Promise<any> = new Promise<any>((resolve, reject) => {
-                    this.http.get('/validate/email?email=' + control.value)
-                     .debounceTime(500)
-                    // .distinctUntilChanged()
-                        .map(res => res.json())
-                        .subscribe(
-                            (res: Response) => {
-                                console.log(res);
-                                resolve(res.isValid ? null : res);
-                            },
-                            (err: any) => {
-                                console.log(err);
-                            }
-                        )
-            });
+            this.http.get('/validate/email?email=' + control.value)
+                .debounceTime(500)
+                // .distinctUntilChanged()
+                .map(res => res.json())
+                .subscribe(
+                    (res: Response) => {
+                        console.log(res);
+                        this.form.controls.email.setErrors(res.isValid ? null : res);
+                        resolve(null);
+                    },
+                    (err: any) => {
+                        console.log(err);
+                    }
+                )
+        });
         return promise;
     }
+
 
 
 }

@@ -11,7 +11,7 @@
         </div>
         <div class="form-group" >
             <label class="control-label" >Email</label>
-            <input formControlName="email" type="text" class="form-control">
+            <input formControlName="email" (blur)="checkUniqueEmail($event.target)" type="text" class="form-control">
             <!--TODO : change this to display error message name.-->
             <small class="hint error" *ngIf="!form.controls.email.valid && form.controls.email.errors?.msg">{{form.controls.email.errors.msg}}</small>
         </div>
