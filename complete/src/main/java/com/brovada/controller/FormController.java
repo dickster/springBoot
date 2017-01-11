@@ -38,6 +38,7 @@ public class FormController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
+            // TODO : change to PUT??
     ResponseEntity<?> add(@RequestBody FormConfig input) {
         System.out.print(input + " --> ");
         FormConfig x = this.repository.save(input);

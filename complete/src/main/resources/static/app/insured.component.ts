@@ -3,7 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
 import {RemoteData, CompleterService} from "ng2-completer";
-
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 
 declare var jQuery:any;
 
@@ -38,15 +39,19 @@ export class InsuredComponent implements OnInit {
         'proposal': 'Direct',
         'firstName': ['', Validators.required],
         'middleName': '',
+        'segment' : '',
         'lastName': ['', Validators.required],
         'phone': ['']
     };
+    private saving:boolean = false;
+    private previous : any = {};
 
 
     constructor(
         private router: Router,
         private formBuilder: FormBuilder,
         private completerService: CompleterService,
+        private http:Http,
         private elementRef:ElementRef) {
 
         this.dataService = completerService.remote('/broker?search=', '', 'desc');
@@ -55,6 +60,26 @@ export class InsuredComponent implements OnInit {
     ngOnInit() {
         this.formConfig.covers = this.initCovers(this.myCovers);
         this.form = this.formBuilder.group( this.formConfig, {validator:this.isFormValid});
+        this.form.valueChanges
+            .debounceTime(500)
+            .subscribe(data => this.saveDraft(data));
+    }
+
+    public saveDraft(data:any) : any {
+        if (!this.formChangedSignificantly(data)) {
+            return;
+        }
+        this.saving = true;
+        let bodyString = JSON.stringify(data); // Stringify payload
+        let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        let options       = new RequestOptions({ headers: headers }); // Create a request option
+
+        return this.http.put('/drafts', bodyString, options)
+            .map((res:Response) => res.json())
+            .subscribe(data => {this.saving = false;},
+                (err: any) => {
+                    this.saving = false;
+                })
     }
 
     ngAfterContentChecked() {
@@ -100,8 +125,8 @@ export class InsuredComponent implements OnInit {
         });
     }
 
-    isValidTotalCommission(form) : any {
-    }
+    // isValidTotalCommission(form) : any {
+    // }
 
     isFormValid(form):any {
 //        if (form.controls.proposal.value=='Broker' && !form.controls.broker.value) {
@@ -126,4 +151,13 @@ export class InsuredComponent implements OnInit {
         this.router.navigate(['/chat']);
     }
 
+    private formChangedSignificantly(data: any) {
+        let result:boolean = this.previous.segment!=data.segment || this.previous.proposal!=data.proposal;
+        this.previous = Object.assign({}, data);
+        return result;
+    }
+
+    public isSaving():boolean {
+        return this.saving;
+    }
 }

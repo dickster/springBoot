@@ -1,6 +1,7 @@
 package com.brovada;
 
 import com.brovada.document.Broker;
+import com.brovada.document.Draft;
 import com.brovada.document.Quote;
 import com.brovada.document.User;
 import com.brovada.document.config.ComponentConfig;
@@ -9,6 +10,7 @@ import com.brovada.document.config.LabelConfig;
 import com.brovada.document.config.PanelConfig;
 import com.brovada.document.config.TextFieldConfig;
 import com.brovada.repository.BrokerRepository;
+import com.brovada.repository.DraftRepository;
 import com.brovada.repository.FormRepository;
 import com.brovada.repository.QuoteRepository;
 import com.brovada.repository.UserRepository;
@@ -34,6 +36,7 @@ public class Application implements CommandLineRunner {
 	@Inject private BrokerRepository brokerRepository;
     @Inject private FormRepository formRepository;
     @Inject private UserRepository userRepository;
+    @Inject private DraftRepository draftRepository;
 
     public static void main(String[] args) {
         // check application.properties for port.   currently 9090.
@@ -98,6 +101,9 @@ public class Application implements CommandLineRunner {
         userRepository.save(new User()
                 .withEmail("foo@bar.com")
                 .withName("John Doe"));
+
+        draftRepository.deleteAll();
+        draftRepository.save(new Draft("tom", "smith"));
 
     }
 
