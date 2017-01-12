@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
 
     constructor(private router:Router,
                 private formBuilder: FormBuilder,
-                private elementRef:ElementRef ) {
-               // private service: QuestionService) {
-        //this.questions = service.getQuestions();
+                private elementRef:ElementRef,
+                private service: QuestionService) {
+        this.questions = service.getQuestions();
     }
 
     ngOnInit() {
