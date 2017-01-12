@@ -9,11 +9,16 @@ import {Ng2CompleterModule} from "ng2-completer";
 import { AppComponent }  from './app.component';
 import { InsuredComponent }  from './insured.component';
 import { ChatComponent }  from './chat.component';
+import { HomeComponent }  from './home.component';
 import { LoginComponent }  from './login.component';
 import {CreateAccountComponent} from './createAccount.component';
 import {AdminComponent} from './admin.component';
 import {QuoteService} from './quote.service';
+import {QuestionComponent} from './question.component';
+import {QuestionService} from './question.service';
+import {QuestionPanelComponent} from './question-panel.component';
 import {QuoteEngineService} from './quoteEngine.service';
+import {ComponentFactory} from './componentFactory';
 import {MessageService} from './message.service';
 import {FormService} from './form.service';
 import {BrokerService} from './broker.service';
@@ -24,9 +29,8 @@ import {Observable} from 'rxjs/Rx';
 
 @NgModule({
     imports:      [ HttpModule, BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
-//    imports:      [ BrowserModule, Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
-    declarations: [ AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
-    providers: [QuoteService, BrokerService, MessageService, FormService, QuoteEngineService],
+    declarations: [ QuestionComponent, QuestionPanelComponent, HomeComponent, AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
+    providers: [QuestionService, ComponentFactory, QuoteService, BrokerService, MessageService, FormService, QuoteEngineService],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

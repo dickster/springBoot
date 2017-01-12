@@ -128,7 +128,7 @@ export class InsuredComponent implements OnInit {
     // isValidTotalCommission(form) : any {
     // }
 
-    isFormValid(form):any {
+    isFormValid(form:any):any {
 //        if (form.controls.proposal.value=='Broker' && !form.controls.broker.value) {
 //            return {msg:'no broker specified', field:'broker'};
 //        }
@@ -145,10 +145,10 @@ export class InsuredComponent implements OnInit {
     }
 
 
-    handleSubmit(event) {
+    handleSubmit(event:any) {
         console.log(this.form.value);
         event.preventDefault();
-        this.router.navigate(['/chat']);
+        this.router.navigate(['/home']);
     }
 
     private formChangedSignificantly(data: any) {
