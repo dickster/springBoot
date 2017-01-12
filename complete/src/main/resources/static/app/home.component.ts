@@ -3,7 +3,7 @@ import {Component, OnInit, ElementRef} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
-// import {QuestionService} from "./question.service";
+import {QuestionService} from "./question.service";
 
 
 //TODO : refactor this into app---the jQuery material.init() code should only be run once.
@@ -12,8 +12,8 @@ declare var jQuery:any;
 
 @Component({
     templateUrl: 'app/home.component.html',
-    providers: [NgModel, NgFormControl]
-   // providers: [QuestionService]
+    //providers: [NgModel, NgFormControl]
+    providers: [QuestionService]
 })
 export class HomeComponent implements OnInit {
 
