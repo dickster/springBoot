@@ -16,7 +16,6 @@ public class LayoutHint {
         return true;
     }
 
-
     // TODO : add whatever else you need here... css themes & styles, required javascript/css files
     // possibly a layoutManager method...name of javascript function that must exist.
     // layoutManager { getLayout(component);   }

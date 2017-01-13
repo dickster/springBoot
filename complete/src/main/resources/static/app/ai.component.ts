@@ -11,11 +11,11 @@ declare var jQuery:any;
 
 
 @Component({
-    templateUrl: 'app/home.component.html',
+    templateUrl: 'app/ai.component.html',
     //providers: [NgModel, NgFormControl]
     providers: [QuestionService]
 })
-export class HomeComponent implements OnInit {
+export class AiComponent implements OnInit {
 
     form:FormGroup;
     questions: any[];

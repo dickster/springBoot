@@ -5,13 +5,13 @@ import {InsuredComponent} from "./insured.component";
 import {AdminComponent} from "./admin.component";
 
 import {Routes} from "@angular/router";
-import {HomeComponent} from "./home.component";
+import {AiComponent} from "./ai.component";
 
 
 export const AppRoutes:Routes = [
     { path: '', component: LoginComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'ai', component: HomeComponent },
+    { path: 'ai', component: AiComponent },
     { path: 'login', component: LoginComponent },
     { path: 'create', component: CreateAccountComponent },
     { path: 'insured', component: InsuredComponent },

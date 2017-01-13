@@ -25,6 +25,15 @@ public class BrokerController {
         return repository.findAll();
     }
 
+    @RequestMapping(value = "/demo", method = RequestMethod.GET)
+    public List<Broker> custom() {
+        List<Broker> brokers = repository.findAll();
+        brokers.add(new Broker("Anu", "Start"));
+        brokers.add(new Broker("Billy", "Smith"));
+        brokers.add(0, new Broker("Aaron", "Aardvark"));
+        return brokers;
+    }
+
     @RequestMapping(value = "/{id}")
     public Broker employee(@PathVariable String id) {
         return repository.findOne(id);

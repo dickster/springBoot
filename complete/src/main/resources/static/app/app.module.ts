@@ -9,7 +9,7 @@ import {Ng2CompleterModule} from "ng2-completer";
 import { AppComponent }  from './app.component';
 import { InsuredComponent }  from './insured.component';
 import { ChatComponent }  from './chat.component';
-import { HomeComponent }  from './home.component';
+import { AiComponent }  from './ai.component';
 import { LoginComponent }  from './login.component';
 import {CreateAccountComponent} from './createAccount.component';
 import {AdminComponent} from './admin.component';
@@ -29,7 +29,7 @@ import {Observable} from 'rxjs/Rx';
 
 @NgModule({
     imports:      [ HttpModule, BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
-    declarations: [ QuestionComponent, QuestionPanelComponent, HomeComponent, AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
+    declarations: [ QuestionComponent, QuestionPanelComponent, AiComponent, AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
     providers: [QuestionService, ComponentFactory, QuoteService, BrokerService, MessageService, FormService, QuoteEngineService],
     bootstrap:    [ AppComponent ]
 })

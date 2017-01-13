@@ -148,7 +148,7 @@ export class InsuredComponent implements OnInit {
     handleSubmit(event:any) {
         console.log(this.form.value);
         event.preventDefault();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/ai']);
     }
 
     private formChangedSignificantly(data: any) {

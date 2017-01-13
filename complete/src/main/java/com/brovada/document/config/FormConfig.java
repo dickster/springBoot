@@ -14,7 +14,7 @@ public class FormConfig extends PanelConfig {
 
     private @Nonnull Locale locale = Locale.getDefault();
     private String initialFocus;
-    private LayoutHint layoutHint;
+    private LayoutHint layoutHint = new LayoutHint();
 
     public FormConfig() {
     }
