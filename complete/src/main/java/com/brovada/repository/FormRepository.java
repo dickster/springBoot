@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface FormRepository extends MongoRepository<FormConfig, String>, Que
 
     public FormConfig findById(String id);
 
-    default public @Nullable FormConfig findLatestById(String id) {
+    default public @Nonnull FormConfig findLatestById(String id) {
         QFormConfig form= new QFormConfig("qf");
 
         FormConfig latest = null;
@@ -28,7 +28,10 @@ public interface FormRepository extends MongoRepository<FormConfig, String>, Que
                 latest = fc;
             }
         }
-        return latest;
+        if (latest!=null) {
+            return latest;
+        }
+        throw new IllegalStateException("can't find any forms with id " + id);
     }
 
 
@@ -45,5 +48,6 @@ public interface FormRepository extends MongoRepository<FormConfig, String>, Que
         );
         return Lists.newArrayList(result);
     }
+
 
 }

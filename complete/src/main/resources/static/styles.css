@@ -177,8 +177,8 @@ div.form-group .checkbox label, div.form-group .radio label, div.form-group labe
     font-size:12px;
 }
 
-div.btn-group .btn.btn-info.btn-raised.active {
-    background: #2f72ff;
-    /*    outline:1px solid red; */
-}
+/*div.btn-group .btn.btn-info.btn-raised.active {*/
+    /*background: #2f72ff;*/
+    /*!*    outline:1px solid red; *!*/
+/*}*/
 

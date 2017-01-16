@@ -110,8 +110,8 @@ export class InsuredComponent implements OnInit {
         return false;
     }
 
-    private initCovers(covers) {
-        let result = [];
+    private initCovers(covers:any) {
+        let result:FormGroup[] = [];
         for (let cover of covers) {
             result.push(this.newCover());
         }

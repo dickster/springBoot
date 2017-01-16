@@ -10,10 +10,10 @@ declare var jQuery:any;
 
 
 @Component({
-    templateUrl: 'app/ai.component.html',
+    templateUrl: 'app/ai2.component.html',
     providers: [QuestionService]
 })
-export class AiComponent implements OnInit {
+export class Ai2Component implements OnInit {
 
     form:FormGroup;
     questions: any[];
@@ -22,7 +22,7 @@ export class AiComponent implements OnInit {
                 private formBuilder: FormBuilder,
                 private elementRef:ElementRef,
                 private service: QuestionService) {
-        this.questions = service.getQuestions();
+        this.questions = service.getMoreQuestions();
     }
 
     ngOnInit() {
@@ -36,7 +36,7 @@ export class AiComponent implements OnInit {
     }
 
     handleSubmit(event:any) {
-        this.router.navigate(['/ai2']);
+        this.router.navigate(['/insured']);
     }
 
 

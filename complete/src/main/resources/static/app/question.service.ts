@@ -52,7 +52,7 @@ export class QuestionService {
             new YesNoConfig({
                 key: 'accident',
                 label: 'Have you had an accident?',
-                css:'col-md-3',
+                css:'col-md-8',
                 showWhen:[{parent:'underAge', value:true}]
             }),
             new TextAreaConfig({
@@ -103,85 +103,76 @@ export class QuestionService {
     getMoreQuestions() {
         let questions: ComponentConfig<any>[] = [
 
-            new AutocompleteConfig( {
-                key: 'company',
-                label: 'Previous Insurer',
-                css:'col-md-3',
-                choices: [
-                    {key: '1',  value: 'Wawanesa'},
-                    {key: '2',  value: 'Zurich'},
-                    {key: '3',   value: 'State Farm'},
-                    {key: '5', value: 'Pembridge'},
-                    {key: '6', value: 'Grenville'},
-                    {key: '7', value: 'CAA'},
-                    {key: '8', value: 'Great White Insurance'},
-                    {key: '9', value: 'Gecko'}
-                ],
-                order: 7
+            new YesNoConfig({
+                key: 'workDrive',
+                label: 'Do you drive to work',
+                css:'col-md-8',
+                order :1
+            }),
+            new TextConfig({
+                key: 'workDistance',
+                css:'col-md-offset-2 col-md-2',
+                label: 'Distance',
+                required:true,
+                inputType: 'number',
+                showWhen:[{parent:'workDrive', value:'yes'}],
+                order: 2
+            }),
+            new YesNoConfig({
+                key: 'haveWork',
+                label: 'Do you work?',
+                css:'col-md-8',
+                showWhen:[{parent:'workDrive', value:'no'}],
+                order :3
+            }),
+
+            new YesNoConfig({
+                key: 'mvr',
+                label: 'Do you have MVR?',
+                css:'col-md-8',
+                order: 4
             }),
             new DropDownConfig({
-                key: 'vehicleType',
-                label: 'Vehicle Type',
+                key: 'mvrStatus',
+                label: 'MVR Status',
                 css:'col-md-3',
                 choices: [
-                    {key: '1',  value: 'GMC'},
-                    {key: '2',  value: 'Toyota'},
-                    {key: '3',   value: 'Mercedes'},
-                    {key: '4', value: 'Ford'}
+                    {key: '1',  value: 'Ordered'},
+                    {key: '2',  value: 'Not Ordered'},
+                    {key: '3',  value: 'I Dunno'},
                 ],
-                order: 3
+                order: 4
             }),
+
             new CheckBoxConfig({
-                key: 'underAge',
-                label: 'Are you under 18?',
+                key: 'convertible',
+                label: 'The vehicle is a convertible',
                 css:'col-md-3',
+                order:5
             }),
             new YesNoConfig({
                 key: 'accident',
                 label: 'Have you had an accident?',
-                css:'col-md-3',
+                css:'col-md-8',
+                order:6,
                 showWhen:[{parent:'underAge', value:true}]
             }),
-            new TextAreaConfig({
-                key: 'accidentDesc',
-                label: 'Description',
-                placeholder: 'Please describe the GMC accident',
-                css:'col-md-12',
-                rows:1,
-                showWhen:[{parent:'accident', value:'yes'},
-                            {parent:'vehicleType', value:'1'}]
-            }),
-            new QuestionPanelConfig({
-                children: [
-                    new DropDownConfig({
-                        css:'col-md-5',
-                        key: 'country',
-                        label: 'Country',
-                        choices: [
-                            {key: '1',  value: 'Canada'},
-                            {key: '2',  value: 'USA'},
-                            {key: '3',   value: 'Mexico'},
-                        ],
-                    }),
-                ],
-                css:'col-md-12',
-                order:4
-            }),
-            new TextConfig({
-                key: 'firstName',
+            new AutocompleteConfig( {
+                key: 'color',
+                label: 'What color is your vehicle',
                 css:'col-md-3',
-                label: 'First name',
-                value: '',
-                required: true,
-                order: 1
+                choices: [
+                    {key: '1',  value: 'red'},
+                    {key: '2',  value: 'green'},
+                    {key: '3',   value: 'blue'},
+                    {key: '5', value: 'beige'},
+                    {key: '6', value: 'sort of a pinkish brown'},
+                    {key: '7', value: 'aqua marine'},
+                    {key: '8', value: 'cobalt blue'},
+                    {key: '9', value: 'turkish green'}
+                ],
+                order: 7
             }),
-            new TextConfig({
-                key: 'emailAddress',
-                css:'col-md-2',
-                label: 'Email',
-                inputType: 'email',
-                order: 2
-            })
         ];
         // TODO : allow for null order. (or ensure order is a number)?
         return questions.sort((a, b) => a.order - b.order);

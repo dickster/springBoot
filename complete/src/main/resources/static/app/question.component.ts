@@ -47,6 +47,12 @@ export class QuestionComponent {
         return true;
     }
 
+    isActiveYesNo(control:string) {
+        let result : boolean = this.form.controls[control].value=='yes';
+        // console.log('yesno : ' + control + ' --> ' + result + '   (' + this.form.controls[control].value+ ')');
+        return result;
+    }
+
     ngOnInit() {
         if (this.question.type!='autocomplete') return;
         console.log('init autocomplete');

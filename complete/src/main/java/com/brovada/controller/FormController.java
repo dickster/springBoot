@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class FormController {
 
     @RequestMapping(value = "latest/{id}")
     // TODO : change this to Optional<>
-    public @Nullable FormConfig getLatest(@PathVariable String id) {
+    public FormConfig getLatest(@PathVariable String id) {
         return repository.findLatestById(id);
     }
 
