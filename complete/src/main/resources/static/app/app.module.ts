@@ -6,6 +6,7 @@ import {AppRoutes} from './app.routes';
 import {RouterModule} from '@angular/router';
 import {Ng2CompleterModule} from "ng2-completer";
 
+import {MixedCase} from './mixedCase.pipe';
 import { AppComponent }  from './app.component';
 import { InsuredComponent }  from './insured.component';
 import { ChatComponent }  from './chat.component';
@@ -30,7 +31,7 @@ import {Observable} from 'rxjs/Rx';
 
 @NgModule({
     imports:      [ HttpModule, BrowserModule,  Ng2CompleterModule, RouterModule.forRoot(AppRoutes), FormsModule, ReactiveFormsModule ],
-    declarations: [ Ai2Component, QuestionComponent, QuestionPanelComponent, AiComponent, AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
+    declarations: [ MixedCase, Ai2Component, QuestionComponent, QuestionPanelComponent, AiComponent, AdminComponent, ChatComponent, InsuredComponent, AppComponent, LoginComponent, CreateAccountComponent ],
     providers: [QuestionService, ComponentFactory, QuoteService, BrokerService, MessageService, FormService, QuoteEngineService],
     bootstrap:    [ AppComponent ]
 })

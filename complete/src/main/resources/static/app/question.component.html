@@ -17,7 +17,7 @@
                     <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key"
                             class="form-control"
                             value="{{form.controls[question.key].value}}">
-                        <option *ngFor="let choice of question.choices" [value]="choice.key">{{choice.value}}</option>
+                        <option *ngFor="let choice of question.choices" [value]="choice.key">{{choice.value|mixedCase}}</option>
                     </select>
                 </div>
             </div>
