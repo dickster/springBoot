@@ -25,12 +25,13 @@ public class BrokerController {
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/demo", method = RequestMethod.GET)
-    public List<Broker> custom() {
-        List<Broker> brokers = repository.findAll();
+    @RequestMapping(value = "/demo")
+    public List<Broker> findByNameWithDemoData(@RequestParam(value="search", defaultValue="") String search) {
+        List<Broker> brokers = findByName(search);
         brokers.add(new Broker("Anu", "Start"));
         brokers.add(new Broker("Billy", "Smith"));
         brokers.add(0, new Broker("Aaron", "Aardvark"));
+        brokers.add(new Broker(search, "Le Bogus"));
         return brokers;
     }
 

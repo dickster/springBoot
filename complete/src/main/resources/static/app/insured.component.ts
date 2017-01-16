@@ -1,10 +1,11 @@
-import {Component, OnInit, ElementRef} from "@angular/core";
+import {Component, Input, OnInit, ElementRef} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
 import {RemoteData, CompleterService} from "ng2-completer";
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 declare var jQuery:any;
 
@@ -17,17 +18,6 @@ export class InsuredComponent implements OnInit {
 
     form: FormGroup;
     private dataService: RemoteData;
-
-    private searchData = [
-        //TODO : turn this into REST service with parameters.  takes segment into account.
-        {name: 'Bob', number: '1754'},
-        {name: 'Fred', number: '3972'},
-        {name: 'Sally', number: '243'},
-        {name: 'Cathy', number: '4948'},
-        {name: 'Jim', number: '519'},
-        {name: 'Sam', number: '6344'},
-        {name: 'Susan', number: '9787'}
-    ];
 
     public myCovers =  [
             {name:'Employers Liability'},
@@ -52,9 +42,9 @@ export class InsuredComponent implements OnInit {
         private formBuilder: FormBuilder,
         private completerService: CompleterService,
         private http:Http,
+        private route:ActivatedRoute,
         private elementRef:ElementRef) {
-
-        this.dataService = completerService.remote('/broker?search=', '', 'desc');
+        this.dataService = this.completerService.remote('/broker?search=', '', 'desc');
     }
 
     ngOnInit() {
@@ -63,6 +53,10 @@ export class InsuredComponent implements OnInit {
         this.form.valueChanges
             .debounceTime(500)
             .subscribe(data => this.saveDraft(data));
+        let demo = this.route.snapshot.data['demo'];
+        if (demo) {
+            this.dataService = this.completerService.remote('/broker/demo?search=', '', 'desc');
+        }
     }
 
     public saveDraft(data:any) : any {

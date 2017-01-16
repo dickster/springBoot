@@ -13,11 +13,12 @@ import {Ai2Component} from "./ai2.component";
 export const AppRoutes:Routes = [
     { path: '', component: LoginComponent },
     { path: 'admin', component: AdminComponent },
+    { path: 'insured', component: InsuredComponent },
+    { path: 'insured2', component: InsuredComponent, data: { demo: true }},
     { path: 'ai', component: AiComponent },
-    { path: 'ai2', component: Ai2Component  },
+    { path: 'ai2', component: Ai2Component },
     { path: 'login', component: LoginComponent },
     { path: 'create', component: CreateAccountComponent },
-    { path: 'insured', component: InsuredComponent },
     { path: 'chat', component: ChatComponent }
 ];
 
