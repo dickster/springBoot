@@ -161,8 +161,24 @@ label.btn.btn-raised.active {
 }
 
 .match {
-    color:blue;
+    color:#005849;
+    /*     font-style:italic; */
 }
+
+
+.completer-selected-row {
+    color:#e8e8e8 !important;
+}
+
+.completer-selected-row  {
+    background:#009688 !important;
+}
+
+.completer-selected-row .match {
+    color:#fff !important;
+    font-weight:bold;
+}
+
 
 div.form-group .checkbox label, div.form-group .radio label, div.form-group label {
     color:#999;

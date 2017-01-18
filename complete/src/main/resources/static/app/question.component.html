@@ -53,7 +53,7 @@
 
             <div *ngSwitchCase="'autocomplete'">
                 <label [attr.for]="question.key">{{question.label}}</label>
-                <ng2-completer [placeholder]="question.placeholder" [formControlName]="question.key"
+                <ng2-completer autoMatch matchClass="match" [placeholder]="question.placeholder" [formControlName]="question.key"
                                [dataService]="dataService"
                                [minSearchLength]="question.minSearchLength">
                 </ng2-completer>

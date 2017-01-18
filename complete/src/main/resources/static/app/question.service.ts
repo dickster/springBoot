@@ -20,6 +20,7 @@ export class QuestionService {
                 key: 'company',
                 label: 'Previous Insurer',
                 css:'col-md-3',
+                placeholder:'enter insurer',
                 choices: [
                     {key: '1',  value: 'Wawanesa'},
                     {key: '2',  value: 'Zurich'},
@@ -37,10 +38,11 @@ export class QuestionService {
                 label: 'Vehicle Type',
                 css:'col-md-3',
                 choices: [
-                    {key: '1',  value: 'GMC'},
-                    {key: '2',  value: 'Toyota'},
-                    {key: '3',   value: 'Mercedes'},
-                    {key: '4', value: 'Ford'}
+                    {key: '1',  value: 'GENERAL MOTORS'},
+                    {key: '2',  value: 'TOYOTA'},
+                    {key: '3',   value: 'MERCEDES BENZ'},
+                    {key: '4',   value: 'FIAT CHRYSLER'},
+                    {key: '5', value: 'FORD'}
                 ],
                 order: 3
             }),
@@ -121,7 +123,7 @@ export class QuestionService {
             new YesNoConfig({
                 key: 'haveWork',
                 label: 'Do you work?',
-                css:'col-md-8',
+                css:'col-md-8 col-md-offset-2',
                 showWhen:[{parent:'workDrive', value:'no'}],
                 order :3
             }),
@@ -151,16 +153,17 @@ export class QuestionService {
                 order:5
             }),
             new YesNoConfig({
-                key: 'accident',
-                label: 'Have you had an accident?',
+                key: 'original',
+                label: 'Are you original owner?',
                 css:'col-md-8',
                 order:6,
-                showWhen:[{parent:'underAge', value:true}]
+                showWhen:[{parent:'convertible', value:true}]
             }),
             new AutocompleteConfig( {
                 key: 'color',
                 label: 'What color is your vehicle',
                 css:'col-md-3',
+                placeholder:'enter a color',
                 choices: [
                     {key: '1',  value: 'red'},
                     {key: '2',  value: 'green'},
