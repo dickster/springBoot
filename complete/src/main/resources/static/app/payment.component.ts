@@ -1,5 +1,5 @@
 import {Component, OnInit, ElementRef} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgModel, NgFormControl} from "@angular/common";
 import {CompleterData, CompleterService} from "ng2-completer";
@@ -20,7 +20,7 @@ export class PaymentComponent implements OnInit {
 
     private formConfig:any = {
         'creditCardType':['MasterCard',Validators.required],
-        'creditCard':['',Validators.required],
+        'creditCard':['', this.validateCC],
         'paymentDate': '1',
         'securityCode': ['', Validators.required]
     };
@@ -80,5 +80,32 @@ export class PaymentComponent implements OnInit {
         jQuery.material.init();
         jQuery(this.elementRef.nativeElement).find('.completer-input').addClass('form-control');
     }
+
+
+    validateCC(c: FormControl) : any {
+
+        let value: string = c.value;
+        // accept only digits, dashes or spaces
+        if (/[^0-9-\s]+/.test(value)) return {isValid:'credit card must only contain digits'};
+
+        // The Luhn Algorithm. It's so pretty.
+        var nCheck = 0, nDigit = 0, bEven = false;
+        value = value.replace(/\D/g, "");
+
+        for (var n = value.length - 1; n >= 0; n--) {
+            var cDigit = value.charAt(n),
+                nDigit = parseInt(cDigit, 10);
+
+            if (bEven) {
+                if ((nDigit *= 2) > 9) nDigit -= 9;
+            }
+
+            nCheck += nDigit;
+            bEven = !bEven;
+        }
+
+        return (nCheck % 10) == 0 ? null : {isValid:'invalid credit card #.'};
+    }
+
 
 }

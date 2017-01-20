@@ -36,53 +36,8 @@ public class QuoteEngineController {
         return Math.random() * 3000 + 150;
     }
 
-    // add a method that will calculate quote given QuoteId as parameter.  a headless service. doesn't need a client to POST.
+    // TODO : add a method that will calculate quote given QuoteId as parameter.  a headless service. doesn't need a client to POST.
     //   can CURL quotes.
-
-
-
-
-        static public class QuoteData {
-        String creditCardType;
-        String creditCard;
-        int paymentDate;
-        String securityCode;
-
-        public QuoteData() {
-        }
-
-        public String getCreditCardType() {
-            return creditCardType;
-        }
-
-        public void setCreditCardType(String creditCardType) {
-            this.creditCardType = creditCardType;
-        }
-
-        public String getCreditCard() {
-            return creditCard;
-        }
-
-        public void setCreditCard(String creditCard) {
-            this.creditCard = creditCard;
-        }
-
-        public int getPaymentDate() {
-            return paymentDate;
-        }
-
-        public void setPaymentDate(int paymentDate) {
-            this.paymentDate = paymentDate;
-        }
-
-        public String getSecurityCode() {
-            return securityCode;
-        }
-
-        public void setSecurityCode(String securityCode) {
-            this.securityCode = securityCode;
-        }
-    }
 
 }
 
