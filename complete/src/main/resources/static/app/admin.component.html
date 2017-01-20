@@ -4,16 +4,16 @@
 
         <div class="row">
             <div class="form-group col-md-10 btn-group" data-toggle="buttons">
-                <label class=" btn btn-raised btn-primary" [class.active]="isForms()">
+                <label class=" btn btn-raised btn-info" [class.active]="isForms()">
                     <input formControlName="tab" value="forms" type="radio">Forms
                 </label>
-                <label class=" btn btn-raised btn-primary" [class.active]="isMessages()">
+                <label class=" btn btn-raised btn-info" [class.active]="isMessages()">
                     <input formControlName="tab" value="messages" type="radio">Messages
                 </label>
-                <label class=" btn btn-raised btn-primary" [class.active]="isBrokers()">
+                <label class=" btn btn-raised btn-info" [class.active]="isBrokers()">
                     <input formControlName="tab" value="brokers" type="radio">Brokers
                 </label>
-                <label class=" btn btn-raised btn-primary" [class.active]="isQuotes()">
+                <label class=" btn btn-raised btn-info" [class.active]="isQuotes()">
                     <input formControlName="tab" value="quotes" type="radio">Quotes
                 </label>
             </div>
@@ -42,7 +42,6 @@
         <caption>Messages</caption>
         <thead>
             <th>From</th>
-            <th>To</th>
             <th>Text</th>
         </thead>
         <tr *ngFor="let message of messages | async">
