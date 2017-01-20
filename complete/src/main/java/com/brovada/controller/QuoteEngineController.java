@@ -3,11 +3,10 @@ package com.brovada.controller;
 import com.brovada.document.Quote;
 import com.brovada.document.QuoteResult;
 import com.brovada.repository.QuoteRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
@@ -19,17 +18,18 @@ public class QuoteEngineController {
 
     private @Inject QuoteRepository quoteRepository;
 
-    // it's possible that you might want caching on this.
-    // it should be treated as a GET then most likely.  caching POSTs is not recommended in general.
-    // a very dangerous undertaking indeed if you do decide to cache!
     @RequestMapping(method = RequestMethod.POST)
-    ResponseEntity<QuoteResult> add(@RequestBody Quote quote) {
+    @ResponseBody
+    public QuoteResult add(@RequestBody QuoteData quote) {
         System.out.print("calculating quote for " + quote);
-        double total = calculate(quote);
+        double total = Math.abs((8765+quote.getCreditCard().hashCode()+quote.getCreditCardType().hashCode()+quote.getSecurityCode().hashCode())*123)%1000;
         QuoteResult result = QuoteResult.success(total);
-        quote.setResult(result);
-        quoteRepository.save(quote);
-        return new ResponseEntity(result, HttpStatus.OK);
+        try {                    // just for debugging reasons....
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     private double calculate(Quote quote) {
@@ -39,6 +39,54 @@ public class QuoteEngineController {
     // add a method that will calculate quote given QuoteId as parameter.  a headless service. doesn't need a client to POST.
     //   can CURL quotes.
 
+
+
+
+        static public class QuoteData {
+        String creditCardType;
+        String creditCard;
+        int paymentDate;
+        String securityCode;
+
+        public QuoteData() {
+        }
+
+        public String getCreditCardType() {
+            return creditCardType;
+        }
+
+        public void setCreditCardType(String creditCardType) {
+            this.creditCardType = creditCardType;
+        }
+
+        public String getCreditCard() {
+            return creditCard;
+        }
+
+        public void setCreditCard(String creditCard) {
+            this.creditCard = creditCard;
+        }
+
+        public int getPaymentDate() {
+            return paymentDate;
+        }
+
+        public void setPaymentDate(int paymentDate) {
+            this.paymentDate = paymentDate;
+        }
+
+        public String getSecurityCode() {
+            return securityCode;
+        }
+
+        public void setSecurityCode(String securityCode) {
+            this.securityCode = securityCode;
+        }
+    }
+
 }
+
+
+
 
 

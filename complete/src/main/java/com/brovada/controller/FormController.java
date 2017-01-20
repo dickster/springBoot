@@ -32,7 +32,6 @@ public class FormController {
     }
 
     @RequestMapping(value = "latest/{id}")
-    // TODO : change this to Optional<>
     public FormConfig getLatest(@PathVariable String id) {
         return repository.findLatestById(id);
     }

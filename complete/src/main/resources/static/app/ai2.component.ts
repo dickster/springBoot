@@ -36,7 +36,7 @@ export class Ai2Component implements OnInit {
     }
 
     handleSubmit(event:any) {
-        this.router.navigate(['/insured']);
+        this.router.navigate(['/payment']);
     }
 
 
