@@ -23,7 +23,7 @@
     </form>
 
     <div class="row">
-        <table  class="table table-striped table-bordered  table-hover col-md-6" *ngIf="isForms()">
+        <table  class="table table-striped table-bordered  table-hover " *ngIf="isForms()">
             <caption><h3>Forms</h3></caption>
             <thead>
             <tr>
@@ -40,7 +40,7 @@
                 </ul>
             </tr>
         </table>
-        <table class="table-striped table-bordered  table-hover col-md-6" *ngIf="isMessages()">
+        <table class="table table-striped table-bordered  table-hover table" *ngIf="isMessages()">
             <caption><h3>Messages</h3></caption>
             <thead>
                 <th>From</th>
@@ -51,7 +51,7 @@
                 <td>{{message.text}}</td>
             </tr>
             </table>
-        <table class="table-striped table-bordered  table-hover col-md-6"  *ngIf="isQuotes()">
+        <table class="table table-striped table-bordered  table-hover "  *ngIf="isQuotes()">
             <caption><h3>Quotes</h3></caption>
             <thead>
                 <th>Name</th>
@@ -64,7 +64,7 @@
                 <td>{{quote.endDate}}</td>
             </tr>
         </table>
-        <table  class="table-striped table-bordered  table-hover col-md-6" *ngIf="isBrokers()">
+        <table  class="table-striped table-bordered  table-hover table" *ngIf="isBrokers()">
             <caption><h3>Brokers</h3></caption>
             <thead>
                 <th>First</th>

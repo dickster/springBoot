@@ -53,7 +53,7 @@ export class CreateAccountComponent implements OnInit {
 
     private checkEmail(control: FormControl): Promise<any> {
 
-        // TODO : throttle this!!!
+        // TODO : throttle this and do caching!!
         const promise :Promise<any> = new Promise<any>((resolve, reject) => {
             this.http.get('/validate/email?email=' + control.value)
                 .debounceTime(500)

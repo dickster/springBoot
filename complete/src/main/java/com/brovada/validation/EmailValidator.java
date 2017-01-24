@@ -12,12 +12,10 @@ import java.util.Map;
 @ValidationParams( {@ValidationParam(value = "email", type=String.class)} )
 public class EmailValidator implements Validator {
 
-    @Inject
-    private UserRepository userRepository;
+    @Inject private UserRepository userRepository;
 
-    @Nonnull
     @Override
-    public ValidationResult validate(Map<String,String> params) {
+    public @Nonnull ValidationResult validate(Map<String,String> params) {
         // ensure given email address is NOT already in use.
         String email = params.get("email");
         User userWithEmail = userRepository.findByEmail(email);

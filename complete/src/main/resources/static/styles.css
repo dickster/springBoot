@@ -220,3 +220,22 @@ a.text-muted {
 .demo .form-horizontal {
     padding-left:40px;
 }
+
+
+/* hacks!!*/
+.demo .table {
+    width:95%;
+}
+.demo table.table th {
+    height: 60px;
+    padding-left :10px;
+}
+.demo table.table tr {
+    height: 40px;
+}
+
+
+.demo .btn[disabled] {
+    color:#666 !important;
+    background:#ddd !important;
+}
