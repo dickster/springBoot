@@ -32,5 +32,4 @@ public class MessageController {
         return messageRepository.findAll();
     }
 
-
 }

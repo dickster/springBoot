@@ -16,7 +16,5 @@ export class QuestionPanelComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.qcs.toFormGroup(this.questions);
-        // i only need this if i'm the root panel???
-        this.form.valueChanges.subscribe(data => console.log('form changes ', data));
     }
 }

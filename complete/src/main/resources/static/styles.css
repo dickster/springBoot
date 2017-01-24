@@ -198,3 +198,10 @@ div.form-group .checkbox label, div.form-group .radio label, div.form-group labe
     /*!*    outline:1px solid red; *!*/
 /*}*/
 
+a.text-muted {
+    color:#ddd;
+}
+
+.btn.btn-raised.btn-info.active {
+    background:#0fc2ff !important;
+}

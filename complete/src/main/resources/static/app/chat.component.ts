@@ -27,12 +27,12 @@ export class ChatComponent {
         this.stompClient.connect({},this.onConnect.bind(this));
     }
 
-    public onConnect(frame) :void {
+    public onConnect(frame:any) :void {
         console.log('Connected: ' + frame);
         this.stompClient.subscribe('/topic/messages/'+this.from, this.addMessage.bind(this));
     }
 
-    public addMessage(message) {
+    public addMessage(message:any) {
         var msg = JSON.parse(message.body);
         this.msgs.push(msg);
         console.log('got message ' + msg.from + ' --> ' + msg.text );
