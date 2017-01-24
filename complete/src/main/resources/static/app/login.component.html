@@ -1,8 +1,11 @@
 
 <form class="form-horizontal" [formGroup]="form"  (submit)="handleSubmit($event)" >
 
-    <section class="col-md-3">
-
+    <section class="col-md-4 col-md-offset-4">
+        <div class="page-header login">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>Login</span>
+        </div>
         <div class="form-group">
             <label class="control-label" >User </label>
             <input formControlName="user" type="text" class="form-control">
@@ -23,10 +26,7 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-raised btn-primary btn-lg" role="button" [disabled]="!form.valid">Login</button>
-        </div>
-
-        <div class="form-group">
-            <a role="button" routerLink="/create">Create Accont</a>
+            <a style="padding-left:50px;" role="button" routerLink="/create">Create Account</a>
         </div>
 
     </section>

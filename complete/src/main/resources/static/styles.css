@@ -205,3 +205,18 @@ a.text-muted {
 .btn.btn-raised.btn-info.active {
     background:#0fc2ff !important;
 }
+
+.page-header.login li.fa {
+    padding-right: 10px;
+}
+
+.page-header.login {
+    font-size: 40px;
+}
+
+
+.container.demo { background:white;}
+
+.demo .form-horizontal {
+    padding-left:40px;
+}
