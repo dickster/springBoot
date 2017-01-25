@@ -8,7 +8,6 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface BrokerRepository extends MongoRepository<Broker, String>, QueryDslPredicateExecutor<Broker> {
@@ -22,10 +21,6 @@ public interface BrokerRepository extends MongoRepository<Broker, String>, Query
    // @Cacheable("broker")
     default public List<Broker> find(String search) {
         QBroker broker = new QBroker("x");
-
-        LocalDate d = LocalDate.now();
-        d.plusYears(1);
-
 
         if (StringUtils.isNotBlank(search)) {
             Iterable<Broker> result = findAll(

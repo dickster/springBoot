@@ -206,11 +206,11 @@ a.text-muted {
     background:#0fc2ff !important;
 }
 
-.page-header.login li.fa {
+.demo .page-header li.fa {
     padding-right: 10px;
 }
 
-.page-header.login {
+.demo .page-header {
     font-size: 40px;
 }
 

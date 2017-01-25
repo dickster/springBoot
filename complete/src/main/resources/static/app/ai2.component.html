@@ -1,7 +1,11 @@
 <form class="form-horizontal" [formGroup]="form" (submit)="handleSubmit($event)">
 
     <section>
-        <h3>AI #2</h3>
+        <div class="page-header ai">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <span>More AI</span>
+        </div>
+
         <question-panel [questions]="questions"></question-panel>
     </section>
 
