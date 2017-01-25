@@ -204,6 +204,7 @@ a.text-muted {
 
 .btn.btn-raised.btn-info.active {
     background:#0fc2ff !important;
+    font-weight:bold;
 }
 
 .demo .page-header li.fa {

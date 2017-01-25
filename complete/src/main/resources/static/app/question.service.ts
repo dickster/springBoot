@@ -123,7 +123,7 @@ export class QuestionService {
             new YesNoConfig({
                 key: 'haveWork',
                 label: 'Do you work?',
-                css:'col-md-8 col-md-offset-2',
+                css:'col-md-6 col-md-offset-2',
                 showWhen:[{parent:'workDrive', value:'no'}],
                 order :3
             }),
