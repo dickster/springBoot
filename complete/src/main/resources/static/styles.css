@@ -239,3 +239,8 @@ a.text-muted {
     color:#666 !important;
     background:#ddd !important;
 }
+
+.demo .btn:hover {
+    color:#666 !important;
+    background: #90d5cf !important;
+}

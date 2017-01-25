@@ -24,7 +24,7 @@ public class QuoteEngineController {
         System.out.print("calculating quote for " + quote);
         double total = Math.abs((8765+quote.getCreditCard().hashCode()+quote.getCreditCardType().hashCode()+quote.getSecurityCode().hashCode())*123)%1000;
         QuoteResult result = QuoteResult.success(total);
-        try {                    // just for debugging reasons....
+        try {                    // just for debugging reasons...
             Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();

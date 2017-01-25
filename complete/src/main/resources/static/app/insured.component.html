@@ -91,21 +91,23 @@
         <div formArrayName="covers">
             <div class="row" *ngFor="let cover of myCovers; let i=index">
                 <div [formGroupName]="i">
-                    <div class="col-md-4 form-group">
+                    <div class="form-group col-md-4">
                         <div class="checkbox">
                             <label><input formControlName="name" type="checkbox">{{cover.name}}</label>
                         </div>
                     </div>
-                    <div *ngIf="isCoverEnabled(i)" class="form-group col-md-2">
+                    <div *ngIf="isCoverEnabled(i)" class="col-md-2">
                         <div class="input-group">
-                            <input type="number" formControlName="commission" class="form-control">
+                            <input type="number" min="0" max="100" formControlName="commission" class="form-control">
                             <span class="input-group-addon">%</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row hint error" *ngIf="!form.valid && form.errors?.field=='commission'">
-                {{form.errors.msg}}
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 hint error " *ngIf="!form.valid && form.errors?.field=='commission'">
+                    {{form.errors.msg}}
+                </div>
             </div>
         </div>
 

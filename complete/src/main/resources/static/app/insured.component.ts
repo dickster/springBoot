@@ -129,9 +129,12 @@ export class InsuredComponent implements OnInit {
         let result:number = 0;
         let pristine:boolean = true;
         for (let cover of form.controls.covers.controls) {
+            let enabled = cover.controls.name.value;
             let commission = cover.controls.commission;
-            pristine = (commission.pristine) && pristine;
-            result += commission.value;
+            if (enabled) {
+                pristine = (commission.pristine) && pristine;
+                result += commission.value;
+            }
         }
         let valid : boolean = (result == 100 || pristine);
         return (valid) ? null :
