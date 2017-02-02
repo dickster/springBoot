@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="hint error" *ngIf="!isValid && isTouched">{{question.label}} is required</div>
+            <div class="hint error" *ngIf="isVisible(form.value) && !isValid && isTouched">{{question.label}} is required</div>
         </div>
         <!--<div *ngIf="isVisible(form.value)" class="col-md-12">-->
         <!--<p>showing this field.</p>-->

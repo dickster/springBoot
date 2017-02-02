@@ -236,12 +236,12 @@ a.text-muted {
 }
 
 
-.demo .btn[disabled] {
+.demo .btn[disabled][type="submit"] {
     color:#666 !important;
     background:#ddd !important;
 }
 
-.demo .btn:hover {
+.demo .btn[type="submit"]:hover {
     color:#666 !important;
     background: #90d5cf !important;
 }
